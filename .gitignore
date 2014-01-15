@@ -1,0 +1,25 @@
+# CONOP.NET for big data assemblies
+CONOP/obj/
+CONOP/bin/Debug/
+!CONOP/README.txt
+CONOP/bin/release/
+!CONOP/bin/Debug/sec7-setting
+!CONOP/bin/Debug/sec19-setting
+!CONOP/bin/Debug/sec50-setting
+!CONOP/bin/Debug/sec195-setting
+!CONOP/bin/Debug/sec286-setting
+!CONOP/bin/Debug/BK-setting
+!CONOP/bin/Debug/inData
+CONOP.NET.suo
+# CONOP.NET CONSOLE implementation
+CONOP_CONSOLE/obj/
+CONOP_CONSOLE/bin/Debug/
+!CONOP_CONSOLE/README.txt
+CONOP_CONSOLE/bin/release/
+!CONOP_CONSOLE/bin/Debug/sec7-setting
+!CONOP_CONSOLE/bin/Debug/sec19-setting
+!CONOP_CONSOLE/bin/Debug/sec50-setting
+!CONOP_CONSOLE/bin/Debug/sec195-setting
+!CONOP_CONSOLE/bin/Debug/sec286-setting
+!CONOP_CONSOLE/bin/Debug/BK-setting
+!CONOP_CONSOLE/bin/Debug/inData

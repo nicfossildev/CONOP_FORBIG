@@ -1,0 +1,1102 @@
+RILEY (7 sections, 62 taxa, 0 others)
+__________________________________________
+           Number of sections:            7
+               Number of taxa:           62
+   Number of Mid-range events:            0
+    Number of unpaired events:            0
+       Total number of events:          124
+
+OPTIMIZED ON Interval PENALTY
+to minimize thickness of range extensions
+ plus exclusive event penalty
+ RUN TIME (min) = 000
+_____________________________
+ THE BEST WEIGHTED PENALTIES:
+ Interval penalties: 
+Section  Net-Penalty     (Section Statistics   )
+  1 {Mor} 373.00 meters  (352.00 meters with 25 event levels at mean spacing of 14.67 +/- 18.61) 
+                         (1 unshared range end(s) at section limit)
+                         (1 complete unshared taxon range(s) at section limit)
+                         (92 events;     penalty per event: 4.05
+                         (rescaled range in best sequence: 116 events)
+  2 {Wht} 602.00 meters  (561.00 meters with 24 event levels at mean spacing of 24.39 +/- 32.14) 
+                         (1 unshared range end(s) at section limit)
+                         (60 events;     penalty per event: 10.03
+                         (rescaled range in best sequence: 122 events)
+  3 {Jms} 447.00 meters  (233.00 meters with 14 event levels at mean spacing of 17.92 +/- 20.07) 
+                         (56 events;     penalty per event: 7.98
+                         (rescaled range in best sequence: 102 events)
+  4 {Lln} 632.00 meters  (340.00 meters with 16 event levels at mean spacing of 22.67 +/- 32.06) 
+                         (54 events;     penalty per event: 11.70
+                         (rescaled range in best sequence: 111 events)
+  5 {Lio} 435.00 meters  (145.00 meters with 8 event levels at mean spacing of 20.71 +/- 10.50) 
+                         (56 events;     penalty per event: 7.77
+                         (rescaled range in best sequence: 85 events)
+  6 {Pon} 408.00 meters  (376.00 meters with 20 event levels at mean spacing of 19.79 +/- 27.35) 
+                         (44 events;     penalty per event: 9.27
+                         (rescaled range in best sequence: 110 events)
+  7 {Str} 649.00 meters  (412.00 meters with 13 event levels at mean spacing of 34.33 +/- 33.30) 
+                         (40 events;     penalty per event: 16.23
+                         (rescaled range in best sequence: 105 events)
+
+Ordinal penalties for comparison
+using solution optimized as above:
+  1 {Mor} 139 pairs of 4187 possible pairs in 25 section levels i.e. 0.0332
+  2 {Wht} 75 pairs of 1771 possible pairs in 24 section levels i.e. 0.0423
+  3 {Jms} 86 pairs of 1541 possible pairs in 14 section levels i.e. 0.0558
+  4 {Lln} 114 pairs of 1432 possible pairs in 16 section levels i.e. 0.0796
+  5 {Lio} 82 pairs of 1541 possible pairs in 8 section levels i.e. 0.0532
+  6 {Pon} 73 pairs of 947 possible pairs in 20 section levels i.e. 0.0771
+  7 {Str} 59 pairs of 781 possible pairs in 13 section levels i.e. 0.0755
+
+ ___________________________________
+
+ TOTAL PENALTY FOR BEST SEQUENCE:   3665.0000
+  includes exclusive event term
+
+ SECONDARY PENALTY FOR BEST SEQUENCE:  0.0000
+
+ALL PENALTIES FIT TO BEST SEQUENCE
+
+    Initial Penalty:   57205.0000 meters
+   Interval Penalty:   3546.0000 meters
+      Level Penalty:   326.0000 levels
+   Eventual Penalty:   495.0000 events
+    Ordinal Penalty:   747.0000 pairs
+    Spatial Penalty:   1433.0000 levels
+     Rascal Penalty:   352.6381
+      Royal Penalty:   208.0000
+   Momental Penalty:   191.0484
+     Sequel Penalty:   603.0000
+   Negative Penalty:   0.0000
+    Teasing Penalty:   89.000 ranks
+     Teasing factor:   0.0000
+  Shrinking Penalty:   737.0000 ranks
+   Shrinking factor:   0.0000
+  Squeezing Penalty:   118.0000 ranks
+   Squeezing factor:   0.0000
+  Smoothing Penalty:   508.9726 meters
+   Smoothing factor:   0.0000
+   Net Section Span:   119.0000
+
+_________________________________________________
+STANDARDIZED MEASURES OF QUALITY OF SOLUTION
+           Number of different events:          124
+           Number of exclusive events:           32
+                   Number of sections:            7
+ Sections with exclusive event at end:            1
+  Number of local events to be placed:          868
+      Number of observed local events:          402
+     i.e. number of lines in loadfile:          402
+    Number of extensible local events:          357
+ (i.e. observed away from section end)
+   Number of penalizable local events:          357
+ (and carrying non-zero weight factor)
+Number of contradictable local events:          370
+(i.e. observed in at least 2 sections)
+    Number of improvable local events:          325
+  (i.e. extensible and contradictable)
+      Number of extended local events:          118
+     Number of penalized local events:          118
+        Number of proven coexistences:          348
+     Number of combinations of 2 taxa:         1891
+       Number of observed FA\LA pairs:         1844
+ Penalized fraction of improvable events:     0.331
+(if greater than 1.0, solution is NOT optimal)
+
+ Total Thickness (all sections): 2419
+Number of Levels (all sections): 120
+          Average Level Spacing: 21.40708
+
+____________________________________
+PENALTY USED TO OPTIMIZE SEQUENCE -
+ (with weights and secondaries)
+           per observed event: 9.11692
+     per contradictable event: 9.90541
+        per penalizable event: 10.26611
+         per extensible event: 10.26611
+           per extended event: 31.05932
+
+
+         MAXIMUM Range Extension: 65499
+
+ OPTIMAL  NET  EXTENSIONS  -  
+ (no secondary penalties)
+     Measured in DISTANCE: 3546
+           per observed event: 8.82090
+     per contradictable event: 9.58378
+        per penalizable event: 9.93277
+         per extensible event: 9.93277
+           per extended event: 30.05085
+ Net Extension  /Total Thickness: 1.465895
+
+
+       Measured in LEVELS: 326
+           per observed event: 0.81095
+     per contradictable event: 0.88108
+        per penalizable event: 0.91317
+         per extensible event: 0.91317
+           per extended event: 2.76271
+  Extension Levels/Total Levels: 2.716667
+
+
+       Measured in EVENTS: 495
+           per observed event: 1.23134
+     per contradictable event: 1.33784
+        per penalizable event: 1.38655
+         per extensible event: 1.38655
+           per extended event: 4.19492
+______________________________________________
+ THE RUN PARAMETERS
+
+ The initial solution - 
+      random sequence  
+ Annealing Schedule - 
+   Initial temperature: 200.0000000
+            10% cooled: 15.3889951
+            30% cooled: 0.09111099
+            50% cooled: 0.00053943
+            70% cooled: 0.000003194
+            90% cooled: 0.000000019
+     Final temperature: 0.000000001
+         Cooling ratio: 0.950
+         Cooling steps: 500
+       Trials per step: 100
+          Total trials: 50000
+      Smoothing Factor: 0.000
+      Squeezing Factor: 0.000
+      Shrinking Factor: 0.000
+        Teasing Factor: 0.000
+ Neighborhood size -    
+ big neighborhood: one random event moved
+                   to random new position
+
+ Observed (sensu lato) co-existences enforced
+______________________________________________
+  THE BEST PERMUTATION FOUND IS:
+  Event:Type   RANK and % above base (rank 1)
+       % permits comparison of different sequences
+ 61: 2  124 (100.00%)  {[Dys.loch]   Dysoristus lochmanae LAD {in 1 sections}  (C#  122)  (tag: not assigned))
+ 59: 2  123 (99.19%)  {[Aps.expa]   Apsotreta expansus LAD {in 3 sections}  (C#  118)  (tag: not assigned))
+ 61: 1  122 (98.39%)  {[Dys.loch]   Dysoristus lochmanae FAD {in 1 sections}  (C#  121)  (tag: not assigned))
+ 58: 2  121 (97.58%)  {[Dyt.gran]   Dytremacephalus granulosus LAD {in 3 sections}  (C#  116)  (tag: not assigned))
+ 60: 2  120 (96.77%)  {[Lab.sigm]   Labiostria sigmoidalis LAD {in 1 sections}  (C#  120)  (tag: not assigned))
+ 50: 2  119 (95.97%)  {[Dun.vari]   Dunderbergia variagranula LAD {in 4 sections}  (C#  100)  (tag: not assigned))
+ 60: 1  118 (95.16%)  {[Lab.sigm]   Labiostria sigmoidalis FAD {in 1 sections}  (C#  119)  (tag: not assigned))
+ 42: 2  117 (94.35%)  {[Aph.walc]   Aphelaspis walcotti LAD {in 7 sections}  (C#  84)  (tag: not assigned))
+ 41: 2  116 (93.55%)  {[Che.brev]   Cheilocephalus breviloba LAD {in 4 sections}  (C#  82)  (tag: not assigned))
+ 59: 1  115 (92.74%)  {[Aps.expa]   Apsotreta expansus FAD {in 3 sections}  (C#  117)  (tag: not assigned))
+ 55: 2  114 (91.94%)  {[Ang.tria]   Angulotreta triangularis LAD {in 7 sections}  (C#  110)  (tag: not assigned))
+ 56: 2  113 (91.13%)  {[Pse.jose]   Pseudagnostus josephus LAD {in 1 sections}  (C#  112)  (tag: not assigned))
+ 53: 2  112 (90.32%)  {[Lab.conv]   Labiostria conveximarginata LAD {in 5 sections}  (C#  106)  (tag: not assigned))
+ 54: 2  111 (89.52%)  {[Pse.comm]   Pseudagnostus communis LAD {in 2 sections}  (C#  108)  (tag: not assigned))
+ 51: 2  110 (88.71%)  {[Dyt.laev]   Dytremacephalus laevis LAD {in 1 sections}  (C#  102)  (tag: not assigned))
+ 58: 1  109 (87.90%)  {[Dyt.gran]   Dytremacephalus granulosus FAD {in 3 sections}  (C#  115)  (tag: not assigned))
+ 49: 2  108 (87.10%)  {[Aph.long]   Aphelaspis longifrons LAD {in 2 sections}  (C#  98)  (tag: not assigned))
+ 48: 2  107 (86.29%)  {[Aph.cons]   Aphelaspis constricta LAD {in 2 sections}  (C#  96)  (tag: not assigned))
+ 48: 1  106 (85.48%)  {[Aph.cons]   Aphelaspis constricta FAD {in 2 sections}  (C#  95)  (tag: not assigned))
+ 50: 1  105 (84.68%)  {[Dun.vari]   Dunderbergia variagranula FAD {in 4 sections}  (C#  99)  (tag: not assigned))
+ 54: 1  104 (83.87%)  {[Pse.comm]   Pseudagnostus communis FAD {in 2 sections}  (C#  107)  (tag: not assigned))
+ 49: 1  103 (83.06%)  {[Aph.long]   Aphelaspis longifrons FAD {in 2 sections}  (C#  97)  (tag: not assigned))
+ 52: 2  102 (82.26%)  {[Lab.plat]   Labiostria platifrons LAD {in 1 sections}  (C#  104)  (tag: not assigned))
+ 52: 1  101 (81.45%)  {[Lab.plat]   Labiostria platifrons FAD {in 1 sections}  (C#  103)  (tag: not assigned))
+ 57: 2  100 (80.65%)  {[Ang.digi]   Angulotreta triangularis digitalis LAD {in 3 sections}  (C#  114)  (tag: not assigned))
+ 43: 2  99 (79.84%)  {[Dic.perf]   Dictyonina perforata LAD {in 5 sections}  (C#  86)  (tag: not assigned))
+ 53: 1  98 (79.03%)  {[Lab.conv]   Labiostria conveximarginata FAD {in 5 sections}  (C#  105)  (tag: not assigned))
+ 55: 1  97 (78.23%)  {[Ang.tria]   Angulotreta triangularis FAD {in 7 sections}  (C#  109)  (tag: not assigned))
+ 47: 2  96 (77.42%)  {[Ger.tumi]   Geragnostus cf.tumidosus LAD {in 1 sections}  (C#  94)  (tag: not assigned))
+ 56: 1  95 (76.61%)  {[Pse.jose]   Pseudagnostus josephus FAD {in 1 sections}  (C#  111)  (tag: not assigned))
+ 51: 1  94 (75.81%)  {[Dyt.laev]   Dytremacephalus laevis FAD {in 1 sections}  (C#  101)  (tag: not assigned))
+ 45: 2  93 (75.00%)  {[Raa.orna]   Raaschella ornata LAD {in 6 sections}  (C#  90)  (tag: not assigned))
+ 25: 2  92 (74.19%)  {[spiculeC]   Sponge spicule C LAD {in 4 sections}  (C#  50)  (tag: not assigned))
+ 46: 2  91 (73.39%)  {[Che.minu]   Cheilocephalus minutus LAD {in 1 sections}  (C#  92)  (tag: not assigned))
+ 57: 1  90 (72.58%)  {[Ang.digi]   Angulotreta triangularis digitalis FAD {in 3 sections}  (C#  113)  (tag: not assigned))
+ 46: 1  89 (71.77%)  {[Che.minu]   Cheilocephalus minutus FAD {in 1 sections}  (C#  91)  (tag: not assigned))
+ 44: 2  88 (70.97%)  {[Aph.spin]   Aphelaspis spinosa LAD {in 3 sections}  (C#  88)  (tag: not assigned))
+ 44: 1  87 (70.16%)  {[Aph.spin]   Aphelaspis spinosa FAD {in 3 sections}  (C#  87)  (tag: not assigned))
+ 47: 1  86 (69.35%)  {[Ger.tumi]   Geragnostus cf.tumidosus FAD {in 1 sections}  (C#  93)  (tag: not assigned))
+ 38: 2  85 (68.55%)  {[Cre.perp]   Crepicephalus perplexus LAD {in 2 sections}  (C#  76)  (tag: not assigned))
+ 31: 2  84 (67.74%)  {[Coo.albe]   Coosia cf.albertensis LAD {in 6 sections}  (C#  62)  (tag: not assigned))
+ 35: 2  83 (66.94%)  {[Mar.aris]   Maryvillia cf.ariston LAD {in 7 sections}  (C#  70)  (tag: not assigned))
+ 22: 2  82 (66.13%)  {[Tri.cori]   Tricrepicephalus coria LAD {in 7 sections}  (C#  44)  (tag: not assigned))
+ 39: 2  81 (65.32%)  {[Lla.pecu]   Llanoaspis peculiaris LAD {in 4 sections}  (C#  78)  (tag: not assigned))
+ 41: 1  80 (64.52%)  {[Che.brev]   Cheilocephalus breviloba FAD {in 4 sections}  (C#  81)  (tag: not assigned))
+ 45: 1  79 (63.71%)  {[Raa.orna]   Raaschella ornata FAD {in 6 sections}  (C#  89)  (tag: not assigned))
+ 38: 1  78 (62.90%)  {[Cre.perp]   Crepicephalus perplexus FAD {in 2 sections}  (C#  75)  (tag: not assigned))
+ 42: 1  77 (62.10%)  {[Aph.walc]   Aphelaspis walcotti FAD {in 7 sections}  (C#  83)  (tag: not assigned))
+ 43: 1  76 (61.29%)  {[Dic.perf]   Dictyonina perforata FAD {in 5 sections}  (C#  85)  (tag: not assigned))
+ 36: 2  75 (60.48%)  {[Met.lois]   Meteoraspis cf.loisi LAD {in 1 sections}  (C#  72)  (tag: not assigned))
+ 40: 2  74 (59.68%)  {[Cre.iowe]   Crepicephalus cf.iowensis LAD {in 1 sections}  (C#  80)  (tag: not assigned))
+ 36: 1  73 (58.87%)  {[Met.lois]   Meteoraspis cf.loisi FAD {in 1 sections}  (C#  71)  (tag: not assigned))
+ 40: 1  72 (58.06%)  {[Cre.iowe]   Crepicephalus cf.iowensis FAD {in 1 sections}  (C#  79)  (tag: not assigned))
+ 21: 2  71 (57.26%)  {[Opi.depr]   Opisthotreta depressa LAD {in 7 sections}  (C#  42)  (tag: not assigned))
+ 17: 2  70 (56.45%)  {[spiculeB]   Sponge spicule B LAD {in 5 sections}  (C#  34)  (tag: not assigned))
+ 26: 2  69 (55.65%)  {[Kin.pont]   Kingstonia pontotocensis LAD {in 5 sections}  (C#  52)  (tag: not assigned))
+ 18: 2  68 (54.84%)  {[Pse.nord]   Pseudagnostus? nordicus LAD {in 5 sections}  (C#  36)  (tag: not assigned))
+ 39: 1  67 (54.03%)  {[Lla.pecu]   Llanoaspis peculiaris FAD {in 4 sections}  (C#  77)  (tag: not assigned))
+ 33: 2  66 (53.23%)  {[Lla.undu]   Llanoaspis undulata LAD {in 4 sections}  (C#  66)  (tag: not assigned))
+ 34: 2  65 (52.42%)  {[Lla.gran]   Llanoaspis undulata granulata LAD {in 2 sections}  (C#  68)  (tag: not assigned))
+ 32: 2  64 (51.61%)  {[Cre.aust]   Crepicephalus australis LAD {in 4 sections}  (C#  64)  (tag: not assigned))
+ 37: 2  63 (50.81%)  {[Pem.inex]   Pemphigaspis inexpectans LAD {in 1 sections}  (C#  74)  (tag: not assigned))
+ 37: 1  62 (50.00%)  {[Pem.inex]   Pemphigaspis inexpectans FAD {in 1 sections}  (C#  73)  (tag: not assigned))
+ 35: 1  61 (49.19%)  {[Mar.aris]   Maryvillia cf.ariston FAD {in 7 sections}  (C#  69)  (tag: not assigned))
+ 31: 1  60 (48.39%)  {[Coo.albe]   Coosia cf.albertensis FAD {in 6 sections}  (C#  61)  (tag: not assigned))
+ 34: 1  59 (47.58%)  {[Lla.gran]   Llanoaspis undulata granulata FAD {in 2 sections}  (C#  67)  (tag: not assigned))
+ 33: 1  58 (46.77%)  {[Lla.undu]   Llanoaspis undulata FAD {in 4 sections}  (C#  65)  (tag: not assigned))
+ 30: 2  57 (45.97%)  {[Coo.widn]   Coosella cf.widnerensis LAD {in 3 sections}  (C#  60)  (tag: not assigned))
+ 28: 2  56 (45.16%)  {[Lla.mode]   Llanoaspis modesta LAD {in 3 sections}  (C#  56)  (tag: not assigned))
+ 6: 2  55 (44.35%)  {[Kor.simp]   Kormagnostus simplex LAD {in 7 sections}  (C#  12)  (tag: not assigned))
+ 29: 2  54 (43.55%)  {[Met.metr]   Metoeraspis metra LAD {in 5 sections}  (C#  58)  (tag: not assigned))
+ 24: 2  53 (42.74%)  {[spiculeA]   Sponge spicule A LAD {in 1 sections}  (C#  48)  (tag: not assigned))
+ 28: 1  52 (41.94%)  {[Lla.mode]   Llanoaspis modesta FAD {in 3 sections}  (C#  55)  (tag: not assigned))
+ 32: 1  51 (41.13%)  {[Cre.aust]   Crepicephalus australis FAD {in 4 sections}  (C#  63)  (tag: not assigned))
+ 14: 2  50 (40.32%)  {[Kin.vari]   Kinsabia varigata LAD {in 6 sections}  (C#  28)  (tag: not assigned))
+ 30: 1  49 (39.52%)  {[Coo.widn]   Coosella cf.widnerensis FAD {in 3 sections}  (C#  59)  (tag: not assigned))
+ 23: 2  48 (38.71%)  {[Tri.texa]   Tricrepicephalus texanus LAD {in 4 sections}  (C#  46)  (tag: not assigned))
+ 13: 2  47 (37.90%)  {[Coo.belt]   Coosella beltensis LAD {in 7 sections}  (C#  26)  (tag: not assigned))
+ 62: 2  46 (37.10%)  {[Die.aste]   Dieracephalus aster LAD {in 1 sections}  (C#  124)  (tag: not assigned))
+ 20: 2  45 (36.29%)  {[Arc.conv]   Arcuolimbus convexus LAD {in 3 sections}  (C#  40)  (tag: not assigned))
+ 11: 2  44 (35.48%)  {[Gen.spin]   Genevievella cf.spinosa LAD {in 2 sections}  (C#  22)  (tag: not assigned))
+ 1: 2  43 (34.68%)  {[Hol.tene]   Holcacephalus tenerus LAD {in 2 sections}  (C#  2)  (tag: not assigned))
+ 15: 2  42 (33.87%)  {[Coo.gran]   Coosella granulosa LAD {in 3 sections}  (C#  30)  (tag: not assigned))
+ 27: 2  41 (33.06%)  {[Lla.virg]   Llanoaspis virginica LAD {in 1 sections}  (C#  54)  (tag: not assigned))
+ 62: 1  40 (32.26%)  {[Die.aste]   Dieracephalus aster FAD {in 1 sections}  (C#  123)  (tag: not assigned))
+ 27: 1  39 (31.45%)  {[Lla.virg]   Llanoaspis virginica FAD {in 1 sections}  (C#  53)  (tag: not assigned))
+ 26: 1  38 (30.65%)  {[Kin.pont]   Kingstonia pontotocensis FAD {in 5 sections}  (C#  51)  (tag: not assigned))
+ 29: 1  37 (29.84%)  {[Met.metr]   Metoeraspis metra FAD {in 5 sections}  (C#  57)  (tag: not assigned))
+ 18: 1  36 (29.03%)  {[Pse.nord]   Pseudagnostus? nordicus FAD {in 5 sections}  (C#  35)  (tag: not assigned))
+ 20: 1  35 (28.23%)  {[Arc.conv]   Arcuolimbus convexus FAD {in 3 sections}  (C#  39)  (tag: not assigned))
+ 12: 2  34 (27.42%)  {[Aps.orif]   Apsotreta orifera LAD {in 2 sections}  (C#  24)  (tag: not assigned))
+ 19: 2  33 (26.61%)  {[Nor.quad]   Norwoodia quadrangularis LAD {in 1 sections}  (C#  38)  (tag: not assigned))
+ 16: 2  32 (25.81%)  {[Coo.conn]   Coosia connata LAD {in 2 sections}  (C#  32)  (tag: not assigned))
+ 11: 1  31 (25.00%)  {[Gen.spin]   Genevievella cf.spinosa FAD {in 2 sections}  (C#  21)  (tag: not assigned))
+ 25: 1  30 (24.19%)  {[spiculeC]   Sponge spicule C FAD {in 4 sections}  (C#  49)  (tag: not assigned))
+ 22: 1  29 (23.39%)  {[Tri.cori]   Tricrepicephalus coria FAD {in 7 sections}  (C#  43)  (tag: not assigned))
+ 23: 1  28 (22.58%)  {[Tri.texa]   Tricrepicephalus texanus FAD {in 4 sections}  (C#  45)  (tag: not assigned))
+ 15: 1  27 (21.77%)  {[Coo.gran]   Coosella granulosa FAD {in 3 sections}  (C#  29)  (tag: not assigned))
+ 21: 1  26 (20.97%)  {[Opi.depr]   Opisthotreta depressa FAD {in 7 sections}  (C#  41)  (tag: not assigned))
+ 19: 1  25 (20.16%)  {[Nor.quad]   Norwoodia quadrangularis FAD {in 1 sections}  (C#  37)  (tag: not assigned))
+ 16: 1  24 (19.35%)  {[Coo.conn]   Coosia connata FAD {in 2 sections}  (C#  31)  (tag: not assigned))
+ 13: 1  23 (18.55%)  {[Coo.belt]   Coosella beltensis FAD {in 7 sections}  (C#  25)  (tag: not assigned))
+ 24: 1  22 (17.74%)  {[spiculeA]   Sponge spicule A FAD {in 1 sections}  (C#  47)  (tag: not assigned))
+ 1: 1  21 (16.94%)  {[Hol.tene]   Holcacephalus tenerus FAD {in 2 sections}  (C#  1)  (tag: not assigned))
+ 17: 1  20 (16.13%)  {[spiculeB]   Sponge spicule B FAD {in 5 sections}  (C#  33)  (tag: not assigned))
+ 9: 2  19 (15.32%)  {[Met.robu]   Meteoraspis cf.robusta LAD {in 3 sections}  (C#  18)  (tag: not assigned))
+ 10: 2  18 (14.52%)  {[Sys.camu]   Syspacheilus cf.camurus LAD {in 3 sections}  (C#  20)  (tag: not assigned))
+ 7: 2  17 (13.71%)  {[Ced.eury]   Cedarina eurycheilos LAD {in 3 sections}  (C#  14)  (tag: not assigned))
+ 9: 1  16 (12.90%)  {[Met.robu]   Meteoraspis cf.robusta FAD {in 3 sections}  (C#  17)  (tag: not assigned))
+ 14: 1  15 (12.10%)  {[Kin.vari]   Kinsabia varigata FAD {in 6 sections}  (C#  27)  (tag: not assigned))
+ 10: 1  14 (11.29%)  {[Sys.camu]   Syspacheilus cf.camurus FAD {in 3 sections}  (C#  19)  (tag: not assigned))
+ 7: 1  13 (10.48%)  {[Ced.eury]   Cedarina eurycheilos FAD {in 3 sections}  (C#  13)  (tag: not assigned))
+ 12: 1  12 (9.68%)  {[Aps.orif]   Apsotreta orifera FAD {in 2 sections}  (C#  23)  (tag: not assigned))
+ 5: 2  11 (8.87%)  {[Ced.cord]   Cedarina cordilleras LAD {in 4 sections}  (C#  10)  (tag: not assigned))
+ 6: 1  10 (8.06%)  {[Kor.simp]   Kormagnostus simplex FAD {in 7 sections}  (C#  11)  (tag: not assigned))
+ 8: 2  9 (7.26%)  {[Mod.cent]   Modocia cf.centralis LAD {in 1 sections}  (C#  16)  (tag: not assigned))
+ 8: 1  8 (6.45%)  {[Mod.cent]   Modocia cf.centralis FAD {in 1 sections}  (C#  15)  (tag: not assigned))
+ 5: 1  7 (5.65%)  {[Ced.cord]   Cedarina cordilleras FAD {in 4 sections}  (C#  9)  (tag: not assigned))
+ 4: 2  6 (4.84%)  {[Bol.burn]   Bolaspidella burnetensis LAD {in 3 sections}  (C#  8)  (tag: not assigned))
+ 4: 1  5 (4.03%)  {[Bol.burn]   Bolaspidella burnetensis FAD {in 3 sections}  (C#  7)  (tag: not assigned))
+ 3: 2  4 (3.23%)  {[Bol.well]   Bolaspidella wellsvillensis LAD {in 2 sections}  (C#  6)  (tag: not assigned))
+ 2: 2  3 (2.42%)  {[Mod.owen]   Modocia cf.oweni LAD {in 1 sections}  (C#  4)  (tag: not assigned))
+ 3: 1  2 (1.61%)  {[Bol.well]   Bolaspidella wellsvillensis FAD {in 2 sections}  (C#  5)  (tag: not assigned))
+ 2: 1  1 (0.81%)  {[Mod.owen]   Modocia cf.oweni FAD {in 1 sections}  (C#  3)  (tag: not assigned))
+______________________________________________
+  THE BEST PERMUTATION FOUND IS:
+  Event:Type   RANK and % above base (rank 1)
+       % permits comparison of different sequences
+  ------ FAD EVENTS ONLY ------
+ 61: 1  122 (98.39%)  {[Dys.loch]   Dysoristus lochmanae FAD {in 1 sections}  (C#  121)  (tag: not assigned))
+ 60: 1  118 (95.16%)  {[Lab.sigm]   Labiostria sigmoidalis FAD {in 1 sections}  (C#  119)  (tag: not assigned))
+ 59: 1  115 (92.74%)  {[Aps.expa]   Apsotreta expansus FAD {in 3 sections}  (C#  117)  (tag: not assigned))
+ 58: 1  109 (87.90%)  {[Dyt.gran]   Dytremacephalus granulosus FAD {in 3 sections}  (C#  115)  (tag: not assigned))
+ 48: 1  106 (85.48%)  {[Aph.cons]   Aphelaspis constricta FAD {in 2 sections}  (C#  95)  (tag: not assigned))
+ 50: 1  105 (84.68%)  {[Dun.vari]   Dunderbergia variagranula FAD {in 4 sections}  (C#  99)  (tag: not assigned))
+ 54: 1  104 (83.87%)  {[Pse.comm]   Pseudagnostus communis FAD {in 2 sections}  (C#  107)  (tag: not assigned))
+ 49: 1  103 (83.06%)  {[Aph.long]   Aphelaspis longifrons FAD {in 2 sections}  (C#  97)  (tag: not assigned))
+ 52: 1  101 (81.45%)  {[Lab.plat]   Labiostria platifrons FAD {in 1 sections}  (C#  103)  (tag: not assigned))
+ 53: 1  98 (79.03%)  {[Lab.conv]   Labiostria conveximarginata FAD {in 5 sections}  (C#  105)  (tag: not assigned))
+ 55: 1  97 (78.23%)  {[Ang.tria]   Angulotreta triangularis FAD {in 7 sections}  (C#  109)  (tag: not assigned))
+ 56: 1  95 (76.61%)  {[Pse.jose]   Pseudagnostus josephus FAD {in 1 sections}  (C#  111)  (tag: not assigned))
+ 51: 1  94 (75.81%)  {[Dyt.laev]   Dytremacephalus laevis FAD {in 1 sections}  (C#  101)  (tag: not assigned))
+ 57: 1  90 (72.58%)  {[Ang.digi]   Angulotreta triangularis digitalis FAD {in 3 sections}  (C#  113)  (tag: not assigned))
+ 46: 1  89 (71.77%)  {[Che.minu]   Cheilocephalus minutus FAD {in 1 sections}  (C#  91)  (tag: not assigned))
+ 44: 1  87 (70.16%)  {[Aph.spin]   Aphelaspis spinosa FAD {in 3 sections}  (C#  87)  (tag: not assigned))
+ 47: 1  86 (69.35%)  {[Ger.tumi]   Geragnostus cf.tumidosus FAD {in 1 sections}  (C#  93)  (tag: not assigned))
+ 41: 1  80 (64.52%)  {[Che.brev]   Cheilocephalus breviloba FAD {in 4 sections}  (C#  81)  (tag: not assigned))
+ 45: 1  79 (63.71%)  {[Raa.orna]   Raaschella ornata FAD {in 6 sections}  (C#  89)  (tag: not assigned))
+ 38: 1  78 (62.90%)  {[Cre.perp]   Crepicephalus perplexus FAD {in 2 sections}  (C#  75)  (tag: not assigned))
+ 42: 1  77 (62.10%)  {[Aph.walc]   Aphelaspis walcotti FAD {in 7 sections}  (C#  83)  (tag: not assigned))
+ 43: 1  76 (61.29%)  {[Dic.perf]   Dictyonina perforata FAD {in 5 sections}  (C#  85)  (tag: not assigned))
+ 36: 1  73 (58.87%)  {[Met.lois]   Meteoraspis cf.loisi FAD {in 1 sections}  (C#  71)  (tag: not assigned))
+ 40: 1  72 (58.06%)  {[Cre.iowe]   Crepicephalus cf.iowensis FAD {in 1 sections}  (C#  79)  (tag: not assigned))
+ 39: 1  67 (54.03%)  {[Lla.pecu]   Llanoaspis peculiaris FAD {in 4 sections}  (C#  77)  (tag: not assigned))
+ 37: 1  62 (50.00%)  {[Pem.inex]   Pemphigaspis inexpectans FAD {in 1 sections}  (C#  73)  (tag: not assigned))
+ 35: 1  61 (49.19%)  {[Mar.aris]   Maryvillia cf.ariston FAD {in 7 sections}  (C#  69)  (tag: not assigned))
+ 31: 1  60 (48.39%)  {[Coo.albe]   Coosia cf.albertensis FAD {in 6 sections}  (C#  61)  (tag: not assigned))
+ 34: 1  59 (47.58%)  {[Lla.gran]   Llanoaspis undulata granulata FAD {in 2 sections}  (C#  67)  (tag: not assigned))
+ 33: 1  58 (46.77%)  {[Lla.undu]   Llanoaspis undulata FAD {in 4 sections}  (C#  65)  (tag: not assigned))
+ 28: 1  52 (41.94%)  {[Lla.mode]   Llanoaspis modesta FAD {in 3 sections}  (C#  55)  (tag: not assigned))
+ 32: 1  51 (41.13%)  {[Cre.aust]   Crepicephalus australis FAD {in 4 sections}  (C#  63)  (tag: not assigned))
+ 30: 1  49 (39.52%)  {[Coo.widn]   Coosella cf.widnerensis FAD {in 3 sections}  (C#  59)  (tag: not assigned))
+ 62: 1  40 (32.26%)  {[Die.aste]   Dieracephalus aster FAD {in 1 sections}  (C#  123)  (tag: not assigned))
+ 27: 1  39 (31.45%)  {[Lla.virg]   Llanoaspis virginica FAD {in 1 sections}  (C#  53)  (tag: not assigned))
+ 26: 1  38 (30.65%)  {[Kin.pont]   Kingstonia pontotocensis FAD {in 5 sections}  (C#  51)  (tag: not assigned))
+ 29: 1  37 (29.84%)  {[Met.metr]   Metoeraspis metra FAD {in 5 sections}  (C#  57)  (tag: not assigned))
+ 18: 1  36 (29.03%)  {[Pse.nord]   Pseudagnostus? nordicus FAD {in 5 sections}  (C#  35)  (tag: not assigned))
+ 20: 1  35 (28.23%)  {[Arc.conv]   Arcuolimbus convexus FAD {in 3 sections}  (C#  39)  (tag: not assigned))
+ 11: 1  31 (25.00%)  {[Gen.spin]   Genevievella cf.spinosa FAD {in 2 sections}  (C#  21)  (tag: not assigned))
+ 25: 1  30 (24.19%)  {[spiculeC]   Sponge spicule C FAD {in 4 sections}  (C#  49)  (tag: not assigned))
+ 22: 1  29 (23.39%)  {[Tri.cori]   Tricrepicephalus coria FAD {in 7 sections}  (C#  43)  (tag: not assigned))
+ 23: 1  28 (22.58%)  {[Tri.texa]   Tricrepicephalus texanus FAD {in 4 sections}  (C#  45)  (tag: not assigned))
+ 15: 1  27 (21.77%)  {[Coo.gran]   Coosella granulosa FAD {in 3 sections}  (C#  29)  (tag: not assigned))
+ 21: 1  26 (20.97%)  {[Opi.depr]   Opisthotreta depressa FAD {in 7 sections}  (C#  41)  (tag: not assigned))
+ 19: 1  25 (20.16%)  {[Nor.quad]   Norwoodia quadrangularis FAD {in 1 sections}  (C#  37)  (tag: not assigned))
+ 16: 1  24 (19.35%)  {[Coo.conn]   Coosia connata FAD {in 2 sections}  (C#  31)  (tag: not assigned))
+ 13: 1  23 (18.55%)  {[Coo.belt]   Coosella beltensis FAD {in 7 sections}  (C#  25)  (tag: not assigned))
+ 24: 1  22 (17.74%)  {[spiculeA]   Sponge spicule A FAD {in 1 sections}  (C#  47)  (tag: not assigned))
+ 1: 1  21 (16.94%)  {[Hol.tene]   Holcacephalus tenerus FAD {in 2 sections}  (C#  1)  (tag: not assigned))
+ 17: 1  20 (16.13%)  {[spiculeB]   Sponge spicule B FAD {in 5 sections}  (C#  33)  (tag: not assigned))
+ 9: 1  16 (12.90%)  {[Met.robu]   Meteoraspis cf.robusta FAD {in 3 sections}  (C#  17)  (tag: not assigned))
+ 14: 1  15 (12.10%)  {[Kin.vari]   Kinsabia varigata FAD {in 6 sections}  (C#  27)  (tag: not assigned))
+ 10: 1  14 (11.29%)  {[Sys.camu]   Syspacheilus cf.camurus FAD {in 3 sections}  (C#  19)  (tag: not assigned))
+ 7: 1  13 (10.48%)  {[Ced.eury]   Cedarina eurycheilos FAD {in 3 sections}  (C#  13)  (tag: not assigned))
+ 12: 1  12 (9.68%)  {[Aps.orif]   Apsotreta orifera FAD {in 2 sections}  (C#  23)  (tag: not assigned))
+ 6: 1  10 (8.06%)  {[Kor.simp]   Kormagnostus simplex FAD {in 7 sections}  (C#  11)  (tag: not assigned))
+ 8: 1  8 (6.45%)  {[Mod.cent]   Modocia cf.centralis FAD {in 1 sections}  (C#  15)  (tag: not assigned))
+ 5: 1  7 (5.65%)  {[Ced.cord]   Cedarina cordilleras FAD {in 4 sections}  (C#  9)  (tag: not assigned))
+ 4: 1  5 (4.03%)  {[Bol.burn]   Bolaspidella burnetensis FAD {in 3 sections}  (C#  7)  (tag: not assigned))
+ 3: 1  2 (1.61%)  {[Bol.well]   Bolaspidella wellsvillensis FAD {in 2 sections}  (C#  5)  (tag: not assigned))
+ 2: 1  1 (0.81%)  {[Mod.owen]   Modocia cf.oweni FAD {in 1 sections}  (C#  3)  (tag: not assigned))
+______________________________________________
+  THE BEST PERMUTATION FOUND IS:
+  Event:Type   RANK and % above base (rank 1)
+       % permits comparison of different sequences
+  ------ LAD EVENTS ONLY ------
+ 61: 2  124 (100.00%)  {[Dys.loch]   Dysoristus lochmanae LAD {in 1 sections}  (C#  122)  (tag: not assigned))
+ 59: 2  123 (99.19%)  {[Aps.expa]   Apsotreta expansus LAD {in 3 sections}  (C#  118)  (tag: not assigned))
+ 58: 2  121 (97.58%)  {[Dyt.gran]   Dytremacephalus granulosus LAD {in 3 sections}  (C#  116)  (tag: not assigned))
+ 60: 2  120 (96.77%)  {[Lab.sigm]   Labiostria sigmoidalis LAD {in 1 sections}  (C#  120)  (tag: not assigned))
+ 50: 2  119 (95.97%)  {[Dun.vari]   Dunderbergia variagranula LAD {in 4 sections}  (C#  100)  (tag: not assigned))
+ 42: 2  117 (94.35%)  {[Aph.walc]   Aphelaspis walcotti LAD {in 7 sections}  (C#  84)  (tag: not assigned))
+ 41: 2  116 (93.55%)  {[Che.brev]   Cheilocephalus breviloba LAD {in 4 sections}  (C#  82)  (tag: not assigned))
+ 55: 2  114 (91.94%)  {[Ang.tria]   Angulotreta triangularis LAD {in 7 sections}  (C#  110)  (tag: not assigned))
+ 56: 2  113 (91.13%)  {[Pse.jose]   Pseudagnostus josephus LAD {in 1 sections}  (C#  112)  (tag: not assigned))
+ 53: 2  112 (90.32%)  {[Lab.conv]   Labiostria conveximarginata LAD {in 5 sections}  (C#  106)  (tag: not assigned))
+ 54: 2  111 (89.52%)  {[Pse.comm]   Pseudagnostus communis LAD {in 2 sections}  (C#  108)  (tag: not assigned))
+ 51: 2  110 (88.71%)  {[Dyt.laev]   Dytremacephalus laevis LAD {in 1 sections}  (C#  102)  (tag: not assigned))
+ 49: 2  108 (87.10%)  {[Aph.long]   Aphelaspis longifrons LAD {in 2 sections}  (C#  98)  (tag: not assigned))
+ 48: 2  107 (86.29%)  {[Aph.cons]   Aphelaspis constricta LAD {in 2 sections}  (C#  96)  (tag: not assigned))
+ 52: 2  102 (82.26%)  {[Lab.plat]   Labiostria platifrons LAD {in 1 sections}  (C#  104)  (tag: not assigned))
+ 57: 2  100 (80.65%)  {[Ang.digi]   Angulotreta triangularis digitalis LAD {in 3 sections}  (C#  114)  (tag: not assigned))
+ 43: 2  99 (79.84%)  {[Dic.perf]   Dictyonina perforata LAD {in 5 sections}  (C#  86)  (tag: not assigned))
+ 47: 2  96 (77.42%)  {[Ger.tumi]   Geragnostus cf.tumidosus LAD {in 1 sections}  (C#  94)  (tag: not assigned))
+ 45: 2  93 (75.00%)  {[Raa.orna]   Raaschella ornata LAD {in 6 sections}  (C#  90)  (tag: not assigned))
+ 25: 2  92 (74.19%)  {[spiculeC]   Sponge spicule C LAD {in 4 sections}  (C#  50)  (tag: not assigned))
+ 46: 2  91 (73.39%)  {[Che.minu]   Cheilocephalus minutus LAD {in 1 sections}  (C#  92)  (tag: not assigned))
+ 44: 2  88 (70.97%)  {[Aph.spin]   Aphelaspis spinosa LAD {in 3 sections}  (C#  88)  (tag: not assigned))
+ 38: 2  85 (68.55%)  {[Cre.perp]   Crepicephalus perplexus LAD {in 2 sections}  (C#  76)  (tag: not assigned))
+ 31: 2  84 (67.74%)  {[Coo.albe]   Coosia cf.albertensis LAD {in 6 sections}  (C#  62)  (tag: not assigned))
+ 35: 2  83 (66.94%)  {[Mar.aris]   Maryvillia cf.ariston LAD {in 7 sections}  (C#  70)  (tag: not assigned))
+ 22: 2  82 (66.13%)  {[Tri.cori]   Tricrepicephalus coria LAD {in 7 sections}  (C#  44)  (tag: not assigned))
+ 39: 2  81 (65.32%)  {[Lla.pecu]   Llanoaspis peculiaris LAD {in 4 sections}  (C#  78)  (tag: not assigned))
+ 36: 2  75 (60.48%)  {[Met.lois]   Meteoraspis cf.loisi LAD {in 1 sections}  (C#  72)  (tag: not assigned))
+ 40: 2  74 (59.68%)  {[Cre.iowe]   Crepicephalus cf.iowensis LAD {in 1 sections}  (C#  80)  (tag: not assigned))
+ 21: 2  71 (57.26%)  {[Opi.depr]   Opisthotreta depressa LAD {in 7 sections}  (C#  42)  (tag: not assigned))
+ 17: 2  70 (56.45%)  {[spiculeB]   Sponge spicule B LAD {in 5 sections}  (C#  34)  (tag: not assigned))
+ 26: 2  69 (55.65%)  {[Kin.pont]   Kingstonia pontotocensis LAD {in 5 sections}  (C#  52)  (tag: not assigned))
+ 18: 2  68 (54.84%)  {[Pse.nord]   Pseudagnostus? nordicus LAD {in 5 sections}  (C#  36)  (tag: not assigned))
+ 33: 2  66 (53.23%)  {[Lla.undu]   Llanoaspis undulata LAD {in 4 sections}  (C#  66)  (tag: not assigned))
+ 34: 2  65 (52.42%)  {[Lla.gran]   Llanoaspis undulata granulata LAD {in 2 sections}  (C#  68)  (tag: not assigned))
+ 32: 2  64 (51.61%)  {[Cre.aust]   Crepicephalus australis LAD {in 4 sections}  (C#  64)  (tag: not assigned))
+ 37: 2  63 (50.81%)  {[Pem.inex]   Pemphigaspis inexpectans LAD {in 1 sections}  (C#  74)  (tag: not assigned))
+ 30: 2  57 (45.97%)  {[Coo.widn]   Coosella cf.widnerensis LAD {in 3 sections}  (C#  60)  (tag: not assigned))
+ 28: 2  56 (45.16%)  {[Lla.mode]   Llanoaspis modesta LAD {in 3 sections}  (C#  56)  (tag: not assigned))
+ 6: 2  55 (44.35%)  {[Kor.simp]   Kormagnostus simplex LAD {in 7 sections}  (C#  12)  (tag: not assigned))
+ 29: 2  54 (43.55%)  {[Met.metr]   Metoeraspis metra LAD {in 5 sections}  (C#  58)  (tag: not assigned))
+ 24: 2  53 (42.74%)  {[spiculeA]   Sponge spicule A LAD {in 1 sections}  (C#  48)  (tag: not assigned))
+ 14: 2  50 (40.32%)  {[Kin.vari]   Kinsabia varigata LAD {in 6 sections}  (C#  28)  (tag: not assigned))
+ 23: 2  48 (38.71%)  {[Tri.texa]   Tricrepicephalus texanus LAD {in 4 sections}  (C#  46)  (tag: not assigned))
+ 13: 2  47 (37.90%)  {[Coo.belt]   Coosella beltensis LAD {in 7 sections}  (C#  26)  (tag: not assigned))
+ 62: 2  46 (37.10%)  {[Die.aste]   Dieracephalus aster LAD {in 1 sections}  (C#  124)  (tag: not assigned))
+ 20: 2  45 (36.29%)  {[Arc.conv]   Arcuolimbus convexus LAD {in 3 sections}  (C#  40)  (tag: not assigned))
+ 11: 2  44 (35.48%)  {[Gen.spin]   Genevievella cf.spinosa LAD {in 2 sections}  (C#  22)  (tag: not assigned))
+ 1: 2  43 (34.68%)  {[Hol.tene]   Holcacephalus tenerus LAD {in 2 sections}  (C#  2)  (tag: not assigned))
+ 15: 2  42 (33.87%)  {[Coo.gran]   Coosella granulosa LAD {in 3 sections}  (C#  30)  (tag: not assigned))
+ 27: 2  41 (33.06%)  {[Lla.virg]   Llanoaspis virginica LAD {in 1 sections}  (C#  54)  (tag: not assigned))
+ 12: 2  34 (27.42%)  {[Aps.orif]   Apsotreta orifera LAD {in 2 sections}  (C#  24)  (tag: not assigned))
+ 19: 2  33 (26.61%)  {[Nor.quad]   Norwoodia quadrangularis LAD {in 1 sections}  (C#  38)  (tag: not assigned))
+ 16: 2  32 (25.81%)  {[Coo.conn]   Coosia connata LAD {in 2 sections}  (C#  32)  (tag: not assigned))
+ 9: 2  19 (15.32%)  {[Met.robu]   Meteoraspis cf.robusta LAD {in 3 sections}  (C#  18)  (tag: not assigned))
+ 10: 2  18 (14.52%)  {[Sys.camu]   Syspacheilus cf.camurus LAD {in 3 sections}  (C#  20)  (tag: not assigned))
+ 7: 2  17 (13.71%)  {[Ced.eury]   Cedarina eurycheilos LAD {in 3 sections}  (C#  14)  (tag: not assigned))
+ 5: 2  11 (8.87%)  {[Ced.cord]   Cedarina cordilleras LAD {in 4 sections}  (C#  10)  (tag: not assigned))
+ 8: 2  9 (7.26%)  {[Mod.cent]   Modocia cf.centralis LAD {in 1 sections}  (C#  16)  (tag: not assigned))
+ 4: 2  6 (4.84%)  {[Bol.burn]   Bolaspidella burnetensis LAD {in 3 sections}  (C#  8)  (tag: not assigned))
+ 3: 2  4 (3.23%)  {[Bol.well]   Bolaspidella wellsvillensis LAD {in 2 sections}  (C#  6)  (tag: not assigned))
+ 2: 2  3 (2.42%)  {[Mod.owen]   Modocia cf.oweni LAD {in 1 sections}  (C#  4)  (tag: not assigned))
+
+______________________________________________
+ INCREMENTAL RANGE EXTENSIONS AS THICKNESSES, 
+ IN BEST SEQUENCE, BY EVENT NUMBER AND SECTION
+ extension = unweighted interval penalty
+
+Event and Extension in Sections  1 -  7
+  (sections: Mor Wht Jms Lln Lio Pon Str)
+xxxx - no extension because not seen in section
+neg  - penalty chargable on negative evidence
+this data table, unlabelled, = OFFdelta.dat
+unless optimized on level penalty
+   61   2 [Dys.loch]      0.00      xxxx      xxxx      xxxx      xxxx      xxxx      xxxx 
+   59   2 [Aps.expa]      0.00      0.00      xxxx      xxxx      0.00      xxxx      xxxx 
+   61   1 [Dys.loch]      0.00      xxxx      xxxx      xxxx      xxxx      xxxx      xxxx 
+   58   2 [Dyt.gran]      xxxx      0.00      0.00      xxxx      0.00      xxxx      xxxx 
+   60   2 [Lab.sigm]      xxxx      0.00      xxxx      xxxx      xxxx      xxxx      xxxx 
+   50   2 [Dun.vari]      0.00      0.00      xxxx      3.00      0.00      xxxx      xxxx 
+   60   1 [Lab.sigm]      xxxx      0.00      xxxx      xxxx      xxxx      xxxx      xxxx 
+   42   2 [Aph.walc]      9.00      8.00      2.00      0.00     15.00      0.00      0.00 
+   41   2 [Che.brev]      0.00      xxxx      xxxx      7.00      0.00     16.00      xxxx 
+   59   1 [Aps.expa]      4.00      5.00      xxxx      xxxx      0.00      xxxx      xxxx 
+   55   2 [Ang.tria]      0.00      0.00      0.00      0.00      0.00      0.00      0.00 
+   56   2 [Pse.jose]      xxxx      xxxx      xxxx      xxxx      xxxx      0.00      xxxx 
+   53   2 [Lab.conv]      0.00      4.00      0.00      xxxx      0.00      0.00      xxxx 
+   54   2 [Pse.comm]      0.00      xxxx      xxxx      xxxx      0.00      xxxx      xxxx 
+   51   2 [Dyt.laev]      xxxx      xxxx      xxxx      xxxx      0.00      xxxx      xxxx 
+   58   1 [Dyt.gran]      xxxx     16.00     10.00      xxxx      0.00      xxxx      xxxx 
+   49   2 [Aph.long]      0.00      xxxx      xxxx      xxxx      0.00      xxxx      xxxx 
+   48   2 [Aph.cons]      0.00      xxxx      xxxx      xxxx      0.00      xxxx      xxxx 
+   48   1 [Aph.cons]      0.00      xxxx      xxxx      xxxx      0.00      xxxx      xxxx 
+   50   1 [Dun.vari]      0.00     16.00      xxxx     24.00      0.00      xxxx      xxxx 
+   54   1 [Pse.comm]     14.00      xxxx      xxxx      xxxx      0.00      xxxx      xxxx 
+   49   1 [Aph.long]      0.00      xxxx      xxxx      xxxx      0.00      xxxx      xxxx 
+   52   2 [Lab.plat]      xxxx      0.00      xxxx      xxxx      xxxx      xxxx      xxxx 
+   52   1 [Lab.plat]      xxxx      0.00      xxxx      xxxx      xxxx      xxxx      xxxx 
+   57   2 [Ang.digi]      xxxx      0.00      0.00      xxxx      xxxx      3.00      xxxx 
+   43   2 [Dic.perf]      0.00      1.00      0.00      0.00      xxxx      xxxx      6.00 
+   53   1 [Lab.conv]      0.00     24.00      0.00      xxxx      0.00      0.00      xxxx 
+   55   1 [Ang.tria]      0.00      5.00      0.00      5.00      0.00      2.00      3.00 
+   47   2 [Ger.tumi]      xxxx      xxxx      xxxx      0.00      xxxx      xxxx      xxxx 
+   56   1 [Pse.jose]      xxxx      xxxx      xxxx      xxxx      xxxx      0.00      xxxx 
+   51   1 [Dyt.laev]      xxxx      xxxx      xxxx      xxxx      0.00      xxxx      xxxx 
+   45   2 [Raa.orna]      0.00      0.00      xxxx      0.00      0.00      0.00      0.00 
+   25   2 [spiculeC]      xxxx      0.00      xxxx      0.00    105.00      0.00      xxxx 
+   46   2 [Che.minu]      xxxx      xxxx      xxxx      0.00      xxxx      xxxx      xxxx 
+   57   1 [Ang.digi]      xxxx      6.00      1.00      xxxx      xxxx      0.00      xxxx 
+   46   1 [Che.minu]      xxxx      xxxx      xxxx      0.00      xxxx      xxxx      xxxx 
+   44   2 [Aph.spin]      0.00      xxxx      xxxx      xxxx      0.00      0.00      xxxx 
+   44   1 [Aph.spin]      0.00      xxxx      xxxx      xxxx      0.00      0.00      xxxx 
+   47   1 [Ger.tumi]      xxxx      xxxx      xxxx      0.00      xxxx      xxxx      xxxx 
+   38   2 [Cre.perp]      0.00      xxxx      xxxx      0.00      xxxx      xxxx      xxxx 
+   31   2 [Coo.albe]     13.00      xxxx      0.00      0.00      0.00      4.00      0.00 
+   35   2 [Mar.aris]      0.00     38.00      0.00      0.00      0.00      0.00      0.00 
+   22   2 [Tri.cori]      0.00     38.00      5.00      0.00      0.00      0.00      0.00 
+   39   2 [Lla.pecu]     13.00      xxxx      5.00      0.00      xxxx      xxxx      0.00 
+   41   1 [Che.brev]      0.00      xxxx      xxxx      1.00     10.00     17.00      xxxx 
+   45   1 [Raa.orna]      0.00      6.00      xxxx      1.00     10.00     25.00     18.00 
+   38   1 [Cre.perp]      0.00      xxxx      xxxx      0.00      xxxx      xxxx      xxxx 
+   42   1 [Aph.walc]      1.00      0.00     24.00      0.00     10.00     14.00     18.00 
+   43   1 [Dic.perf]      0.00      6.00     24.00      2.00      xxxx      xxxx     18.00 
+   36   2 [Met.lois]      xxxx      xxxx      xxxx      xxxx      xxxx      0.00      xxxx 
+   40   2 [Cre.iowe]      0.00      xxxx      xxxx      xxxx      xxxx      xxxx      xxxx 
+   36   1 [Met.lois]      xxxx      xxxx      xxxx      xxxx      xxxx      0.00      xxxx 
+   40   1 [Cre.iowe]      0.00      xxxx      xxxx      xxxx      xxxx      xxxx      xxxx 
+   21   2 [Opi.depr]     10.00      0.00      2.00      0.00     40.00      7.00      0.00 
+   17   2 [spiculeB]      0.00      0.00      0.00      0.00      xxxx      xxxx     44.00 
+   26   2 [Kin.pont]     29.00      0.00      0.00     51.00      0.00      xxxx      xxxx 
+   18   2 [Pse.nord]      xxxx     78.00      0.00     87.00      0.00      xxxx      0.00 
+   39   1 [Lla.pecu]     12.00      xxxx      0.00     20.00      xxxx      xxxx      0.00 
+   33   2 [Lla.undu]      0.00      0.00      0.00      0.00      xxxx      xxxx      xxxx 
+   34   2 [Lla.gran]      0.00      xxxx      xxxx      0.00      xxxx      xxxx      xxxx 
+   32   2 [Cre.aust]     21.00      xxxx      0.00     30.00      xxxx      0.00      xxxx 
+   37   2 [Pem.inex]      xxxx      xxxx      0.00      xxxx      xxxx      xxxx      xxxx 
+   37   1 [Pem.inex]      xxxx      xxxx      0.00      xxxx      xxxx      xxxx      xxxx 
+   35   1 [Mar.aris]      0.00      0.00      0.00      0.00     30.00      9.00      0.00 
+   31   1 [Coo.albe]     12.00      xxxx      0.00     20.00     55.00      0.00      0.00 
+   34   1 [Lla.gran]      0.00      xxxx      xxxx      0.00      xxxx      xxxx      xxxx 
+   33   1 [Lla.undu]      0.00      0.00      0.00      0.00      xxxx      xxxx      xxxx 
+   30   2 [Coo.widn]     13.00      xxxx      0.00      xxxx      xxxx      xxxx      0.00 
+   28   2 [Lla.mode]      2.00      0.00      0.00      xxxx      xxxx      xxxx      xxxx 
+    6   2 [Kor.simp]      0.00     22.00     12.00     57.00      0.00    177.00    190.00 
+   29   2 [Met.metr]      0.00      0.00      xxxx      0.00      0.00      xxxx      0.00 
+   24   2 [spiculeA]      0.00      xxxx      xxxx      xxxx      xxxx      xxxx      xxxx 
+   28   1 [Lla.mode]      0.00     18.00      0.00      xxxx      xxxx      xxxx      xxxx 
+   32   1 [Cre.aust]      0.00      xxxx     57.00      0.00      xxxx      0.00      xxxx 
+   14   2 [Kin.vari]      0.00      2.00      0.00     18.00      xxxx      8.00      8.00 
+   30   1 [Coo.widn]      0.00      xxxx     31.00      xxxx      xxxx      xxxx     30.00 
+   23   2 [Tri.texa]     34.00      0.00     12.00      xxxx     40.00      xxxx      xxxx 
+   13   2 [Coo.belt]      0.00      0.00      0.00      0.00      0.00     61.00      0.00 
+   62   2 [Die.aste]      0.00      xxxx      xxxx      xxxx      xxxx      xxxx      xxxx 
+   20   2 [Arc.conv]      0.00      xxxx      0.00      xxxx      0.00      xxxx      xxxx 
+   11   2 [Gen.spin]     27.00      xxxx      xxxx      xxxx      0.00      xxxx      xxxx 
+    1   2 [Hol.tene]      0.00      xxxx      xxxx      xxxx     40.00      xxxx      xxxx 
+   15   2 [Coo.gran]      0.00      xxxx      0.00      xxxx     40.00      xxxx      xxxx 
+   27   2 [Lla.virg]      xxxx      0.00      xxxx      xxxx      xxxx      xxxx      xxxx 
+   62   1 [Die.aste]      0.00      xxxx      xxxx      xxxx      xxxx      xxxx      xxxx 
+   27   1 [Lla.virg]      xxxx      0.00      xxxx      xxxx      xxxx      xxxx      xxxx 
+   26   1 [Kin.pont]      7.00      0.00     69.00      0.00      0.00      xxxx      xxxx 
+   29   1 [Met.metr]      0.00      0.00      xxxx     39.00      0.00      xxxx      0.00 
+   18   1 [Pse.nord]      xxxx      0.00     91.00      0.00      0.00      xxxx     74.00 
+   20   1 [Arc.conv]      7.00      xxxx      0.00      xxxx      0.00      xxxx      xxxx 
+   12   2 [Aps.orif]      0.00      xxxx     78.00      xxxx      xxxx      xxxx      xxxx 
+   19   2 [Nor.quad]      0.00      xxxx      xxxx      xxxx      xxxx      xxxx      xxxx 
+   16   2 [Coo.conn]      0.00     46.00      xxxx      xxxx      xxxx      xxxx      xxxx 
+   11   1 [Gen.spin]      0.00      xxxx      xxxx      xxxx      0.00      xxxx      xxxx 
+   25   1 [spiculeC]      xxxx    116.00      xxxx    108.00      0.00     45.00      xxxx 
+   22   1 [Tri.cori]      0.00      0.00      0.00     18.00      0.00     20.00     74.00 
+   23   1 [Tri.texa]      0.00      0.00      0.00      xxxx      0.00      xxxx      xxxx 
+   15   1 [Coo.gran]      0.00      xxxx      0.00      xxxx      0.00      xxxx      xxxx 
+   21   1 [Opi.depr]     27.00      0.00      0.00     18.00      0.00      0.00      0.00 
+   19   1 [Nor.quad]      0.00      xxxx      xxxx      xxxx      xxxx      xxxx      xxxx 
+   16   1 [Coo.conn]      0.00      0.00      xxxx      xxxx      xxxx      xxxx      xxxx 
+   13   1 [Coo.belt]      0.00     46.00      0.00      0.00      0.00      0.00      8.00 
+   24   1 [spiculeA]      0.00      xxxx      xxxx      xxxx      xxxx      xxxx      xxxx 
+    1   1 [Hol.tene]     27.00      xxxx      xxxx      xxxx      0.00      xxxx      xxxx 
+   17   1 [spiculeB]     45.00      0.00     24.00      0.00      xxxx      xxxx      0.00 
+    9   2 [Met.robu]      0.00      xxxx      0.00      xxxx      xxxx      xxxx      0.00 
+   10   2 [Sys.camu]      0.00      xxxx      0.00      xxxx      xxxx      xxxx      0.00 
+    7   2 [Ced.eury]      0.00      0.00      xxxx      xxxx      xxxx      xxxx     32.00 
+    9   1 [Met.robu]      0.00      xxxx      0.00      xxxx      xxxx      xxxx      0.00 
+   14   1 [Kin.vari]      0.00    101.00      0.00      0.00      xxxx      0.00     21.00 
+   10   1 [Sys.camu]      0.00      xxxx      0.00      xxxx      xxxx      xxxx      0.00 
+    7   1 [Ced.eury]      0.00      0.00      xxxx      xxxx      xxxx      xxxx      0.00 
+   12   1 [Aps.orif]     46.00      xxxx      0.00      xxxx      xxxx      xxxx      xxxx 
+    5   2 [Ced.cord]      0.00      xxxx      xxxx      0.00      xxxx      0.00      0.00 
+    6   1 [Kor.simp]      0.00      0.00      0.00    123.00     40.00      0.00    105.00 
+    8   2 [Mod.cent]      xxxx      xxxx      xxxx      xxxx      xxxx      0.00      xxxx 
+    8   1 [Mod.cent]      xxxx      xxxx      xxxx      xxxx      xxxx      0.00      xxxx 
+    5   1 [Ced.cord]      0.00      xxxx      xxxx      0.00      xxxx      0.00      0.00 
+    4   2 [Bol.burn]      0.00      xxxx      xxxx      0.00      xxxx      0.00      xxxx 
+    4   1 [Bol.burn]      0.00      xxxx      xxxx      0.00      xxxx      0.00      xxxx 
+    3   2 [Bol.well]      xxxx      0.00      xxxx      xxxx      xxxx      0.00      xxxx 
+    2   2 [Mod.owen]      xxxx      0.00      xxxx      xxxx      xxxx      xxxx      xxxx 
+    3   1 [Bol.well]      xxxx      0.00      xxxx      xxxx      xxxx      0.00      xxxx 
+    2   1 [Mod.owen]      xxxx      0.00      xxxx      xxxx      xxxx      xxxx      xxxx 
+
+_________________________________________________
+ INCREMENTAL RANGE EXTENSION MEASURED BY LEVELS, 
+ IN BEST SEQUENCE, BY EVENT NUMBER AND SECTION
+ extension = unweighted level penalty
+
+WARNING: optimized on interval penalty!  
+Range extensions measured in thickness intervals
+were in the previous section of this report.  
+
+
+Event and Extension in Sections   1 -  7
+  (sections: Mor Wht Jms Lln Lio Pon Str)
+xxx - no extension because not seen in section
+neg  - penalty chargable on negative evidence
+if optimized on level penalty
+this data table, unlabelled, = OFFdelta.dat
+
+   61   2 [Dys.loch]         0       xxx       xxx       xxx       xxx       xxx       xxx 
+   59   2 [Aps.expa]         0         0       xxx       xxx         0       xxx       xxx 
+   61   1 [Dys.loch]         0       xxx       xxx       xxx       xxx       xxx       xxx 
+   58   2 [Dyt.gran]       xxx         0         0       xxx         0       xxx       xxx 
+   60   2 [Lab.sigm]       xxx         0       xxx       xxx       xxx       xxx       xxx 
+   50   2 [Dun.vari]         0         0       xxx         1         0       xxx       xxx 
+   60   1 [Lab.sigm]       xxx         0       xxx       xxx       xxx       xxx       xxx 
+   42   2 [Aph.walc]         1         2         1         0         1         0         0 
+   41   2 [Che.brev]         0       xxx       xxx         3         0         4       xxx 
+   59   1 [Aps.expa]         1         1       xxx       xxx         0       xxx       xxx 
+   55   2 [Ang.tria]         0         0         0         0         0         0         0 
+   56   2 [Pse.jose]       xxx       xxx       xxx       xxx       xxx         0       xxx 
+   53   2 [Lab.conv]         0         1         0       xxx         0         0       xxx 
+   54   2 [Pse.comm]         0       xxx       xxx       xxx         0       xxx       xxx 
+   51   2 [Dyt.laev]       xxx       xxx       xxx       xxx         0       xxx       xxx 
+   58   1 [Dyt.gran]       xxx         2         2       xxx         0       xxx       xxx 
+   49   2 [Aph.long]         0       xxx       xxx       xxx         0       xxx       xxx 
+   48   2 [Aph.cons]         0       xxx       xxx       xxx         0       xxx       xxx 
+   48   1 [Aph.cons]         0       xxx       xxx       xxx         0       xxx       xxx 
+   50   1 [Dun.vari]         0         2       xxx         1         0       xxx       xxx 
+   54   1 [Pse.comm]         1       xxx       xxx       xxx         0       xxx       xxx 
+   49   1 [Aph.long]         0       xxx       xxx       xxx         0       xxx       xxx 
+   52   2 [Lab.plat]       xxx         0       xxx       xxx       xxx       xxx       xxx 
+   52   1 [Lab.plat]       xxx         0       xxx       xxx       xxx       xxx       xxx 
+   57   2 [Ang.digi]       xxx         0         0       xxx       xxx         1       xxx 
+   43   2 [Dic.perf]         0         1         0         0       xxx       xxx         1 
+   53   1 [Lab.conv]         0         3         0       xxx         0         0       xxx 
+   55   1 [Ang.tria]         0         1         0         1         0         1         1 
+   47   2 [Ger.tumi]       xxx       xxx       xxx         0       xxx       xxx       xxx 
+   56   1 [Pse.jose]       xxx       xxx       xxx       xxx       xxx         0       xxx 
+   51   1 [Dyt.laev]       xxx       xxx       xxx       xxx         0       xxx       xxx 
+   45   2 [Raa.orna]         0         0       xxx         0         0         0         0 
+   25   2 [spiculeC]       xxx         0       xxx         0         4         0       xxx 
+   46   2 [Che.minu]       xxx       xxx       xxx         0       xxx       xxx       xxx 
+   57   1 [Ang.digi]       xxx         1         1       xxx       xxx         0       xxx 
+   46   1 [Che.minu]       xxx       xxx       xxx         0       xxx       xxx       xxx 
+   44   2 [Aph.spin]         0       xxx       xxx       xxx         0         0       xxx 
+   44   1 [Aph.spin]         0       xxx       xxx       xxx         0         0       xxx 
+   47   1 [Ger.tumi]       xxx       xxx       xxx         0       xxx       xxx       xxx 
+   38   2 [Cre.perp]         0       xxx       xxx         0       xxx       xxx       xxx 
+   31   2 [Coo.albe]         1       xxx         0         0         0         1         0 
+   35   2 [Mar.aris]         0         2         0         0         0         0         0 
+   22   2 [Tri.cori]         0         2         2         0         0         0         0 
+   39   2 [Lla.pecu]         1       xxx         2         0       xxx       xxx         0 
+   41   1 [Che.brev]         0       xxx       xxx         1         1         3       xxx 
+   45   1 [Raa.orna]         0         1       xxx         1         1         4         1 
+   38   1 [Cre.perp]         0       xxx       xxx         0       xxx       xxx       xxx 
+   42   1 [Aph.walc]         1         0         1         0         1         1         1 
+   43   1 [Dic.perf]         0         1         1         2       xxx       xxx         1 
+   36   2 [Met.lois]       xxx       xxx       xxx       xxx       xxx         0       xxx 
+   40   2 [Cre.iowe]         0       xxx       xxx       xxx       xxx       xxx       xxx 
+   36   1 [Met.lois]       xxx       xxx       xxx       xxx       xxx         0       xxx 
+   40   1 [Cre.iowe]         0       xxx       xxx       xxx       xxx       xxx       xxx 
+   21   2 [Opi.depr]         1         0         1         0         1         1         0 
+   17   2 [spiculeB]         0         0         0         0       xxx       xxx         1 
+   26   2 [Kin.pont]         4         0         0         2         0       xxx       xxx 
+   18   2 [Pse.nord]       xxx         5         0         4         0       xxx         0 
+   39   1 [Lla.pecu]         1       xxx         0         2       xxx       xxx         0 
+   33   2 [Lla.undu]         0         0         0         0       xxx       xxx       xxx 
+   34   2 [Lla.gran]         0       xxx       xxx         0       xxx       xxx       xxx 
+   32   2 [Cre.aust]         3       xxx         0         1       xxx         0       xxx 
+   37   2 [Pem.inex]       xxx       xxx         0       xxx       xxx       xxx       xxx 
+   37   1 [Pem.inex]       xxx       xxx         0       xxx       xxx       xxx       xxx 
+   35   1 [Mar.aris]         0         0         0         0         1         1         0 
+   31   1 [Coo.albe]         1       xxx         0         2         2         0         0 
+   34   1 [Lla.gran]         0       xxx       xxx         0       xxx       xxx       xxx 
+   33   1 [Lla.undu]         0         0         0         0       xxx       xxx       xxx 
+   30   2 [Coo.widn]         3       xxx         0       xxx       xxx       xxx         0 
+   28   2 [Lla.mode]         1         0         0       xxx       xxx       xxx       xxx 
+    6   2 [Kor.simp]         0         1         1         3         0         3         5 
+   29   2 [Met.metr]         0         0       xxx         0         0       xxx         0 
+   24   2 [spiculeA]         0       xxx       xxx       xxx       xxx       xxx       xxx 
+   28   1 [Lla.mode]         0         1         0       xxx       xxx       xxx       xxx 
+   32   1 [Cre.aust]         0       xxx         2         0       xxx         0       xxx 
+   14   2 [Kin.vari]         0         1         0         1       xxx         1         1 
+   30   1 [Coo.widn]         0       xxx         2       xxx       xxx       xxx         1 
+   23   2 [Tri.texa]         2         0         1       xxx         1       xxx       xxx 
+   13   2 [Coo.belt]         0         0         0         0         0         2         0 
+   62   2 [Die.aste]         0       xxx       xxx       xxx       xxx       xxx       xxx 
+   20   2 [Arc.conv]         0       xxx         0       xxx         0       xxx       xxx 
+   11   2 [Gen.spin]         1       xxx       xxx       xxx         0       xxx       xxx 
+    1   2 [Hol.tene]         0       xxx       xxx       xxx         1       xxx       xxx 
+   15   2 [Coo.gran]         0       xxx         0       xxx         1       xxx       xxx 
+   27   2 [Lla.virg]       xxx         0       xxx       xxx       xxx       xxx       xxx 
+   62   1 [Die.aste]         0       xxx       xxx       xxx       xxx       xxx       xxx 
+   27   1 [Lla.virg]       xxx         0       xxx       xxx       xxx       xxx       xxx 
+   26   1 [Kin.pont]         1         0         3         0         0       xxx       xxx 
+   29   1 [Met.metr]         0         0       xxx         2         0       xxx         0 
+   18   1 [Pse.nord]       xxx         0         6         0         0       xxx         2 
+   20   1 [Arc.conv]         1       xxx         0       xxx         0       xxx       xxx 
+   12   2 [Aps.orif]         0       xxx         1       xxx       xxx       xxx       xxx 
+   19   2 [Nor.quad]         0       xxx       xxx       xxx       xxx       xxx       xxx 
+   16   2 [Coo.conn]         0         2       xxx       xxx       xxx       xxx       xxx 
+   11   1 [Gen.spin]         0       xxx       xxx       xxx         0       xxx       xxx 
+   25   1 [spiculeC]       xxx         7       xxx         7         0         7       xxx 
+   22   1 [Tri.cori]         0         0         0         1         0         3         2 
+   23   1 [Tri.texa]         0         0         0       xxx         0       xxx       xxx 
+   15   1 [Coo.gran]         0       xxx         0       xxx         0       xxx       xxx 
+   21   1 [Opi.depr]         1         0         0         1         0         0         0 
+   19   1 [Nor.quad]         0       xxx       xxx       xxx       xxx       xxx       xxx 
+   16   1 [Coo.conn]         0         0       xxx       xxx       xxx       xxx       xxx 
+   13   1 [Coo.belt]         0         2         0         0         0         0         1 
+   24   1 [spiculeA]         0       xxx       xxx       xxx       xxx       xxx       xxx 
+    1   1 [Hol.tene]         1       xxx       xxx       xxx         0       xxx       xxx 
+   17   1 [spiculeB]         3         0         2         0       xxx       xxx         0 
+    9   2 [Met.robu]         0       xxx         0       xxx       xxx       xxx         0 
+   10   2 [Sys.camu]         0       xxx         0       xxx       xxx       xxx         0 
+    7   2 [Ced.eury]         0         0       xxx       xxx       xxx       xxx         1 
+    9   1 [Met.robu]         0       xxx         0       xxx       xxx       xxx         0 
+   14   1 [Kin.vari]         0         1         0         0       xxx         0         1 
+   10   1 [Sys.camu]         0       xxx         0       xxx       xxx       xxx         0 
+    7   1 [Ced.eury]         0         0       xxx       xxx       xxx       xxx         0 
+   12   1 [Aps.orif]         1       xxx         0       xxx       xxx       xxx       xxx 
+    5   2 [Ced.cord]         0       xxx       xxx         0       xxx         0         0 
+    6   1 [Kor.simp]         0         0         0         1         1         0         1 
+    8   2 [Mod.cent]       xxx       xxx       xxx       xxx       xxx         0       xxx 
+    8   1 [Mod.cent]       xxx       xxx       xxx       xxx       xxx         0       xxx 
+    5   1 [Ced.cord]         0       xxx       xxx         0       xxx         0         0 
+    4   2 [Bol.burn]         0       xxx       xxx         0       xxx         0       xxx 
+    4   1 [Bol.burn]         0       xxx       xxx         0       xxx         0       xxx 
+    3   2 [Bol.well]       xxx         0       xxx       xxx       xxx         0       xxx 
+    2   2 [Mod.owen]       xxx         0       xxx       xxx       xxx       xxx       xxx 
+    3   1 [Bol.well]       xxx         0       xxx       xxx       xxx         0       xxx 
+    2   1 [Mod.owen]       xxx         0       xxx       xxx       xxx       xxx       xxx 
+_____________________________________________
+  THE LINE OF CORRELATION
+without any moving average
+
+ Event and Placed Levels in Sections   1 -  7
+    (sections: Mor Wht Jms Lln Lio Pon Str)	
+next data table, unlabelled, = albet.dat
+   61   2 [Dys.loch]   1574.00   1808.00   1275.00   1592.00   1230.00   1655.00   1412.00 
+   59   2 [Aps.expa]   1574.00   1808.00   1275.00   1592.00   1230.00   1655.00   1412.00 
+   61   1 [Dys.loch]   1574.00   1795.00   1275.00   1592.00   1230.00   1655.00   1412.00 
+   58   2 [Dyt.gran]   1570.00   1795.00   1275.00   1592.00   1230.00   1655.00   1412.00 
+   60   2 [Lab.sigm]   1570.00   1795.00   1267.00   1592.00   1230.00   1655.00   1412.00 
+   50   2 [Dun.vari]   1570.00   1795.00   1267.00   1592.00   1230.00   1655.00   1412.00 
+   60   1 [Lab.sigm]   1570.00   1795.00   1267.00   1592.00   1230.00   1655.00   1412.00 
+   42   2 [Aph.walc]   1570.00   1779.00   1267.00   1592.00   1230.00   1655.00   1412.00 
+   41   2 [Che.brev]   1570.00   1779.00   1267.00   1565.00   1230.00   1655.00   1396.00 
+   59   1 [Aps.expa]   1570.00   1779.00   1267.00   1565.00   1230.00   1655.00   1396.00 
+   55   2 [Ang.tria]   1570.00   1779.00   1267.00   1565.00   1215.00   1655.00   1396.00 
+   56   2 [Pse.jose]   1570.00   1779.00   1265.00   1565.00   1215.00   1650.00   1393.00 
+   53   2 [Lab.conv]   1570.00   1779.00   1265.00   1565.00   1215.00   1650.00   1393.00 
+   54   2 [Pse.comm]   1561.00   1779.00   1265.00   1565.00   1215.00   1650.00   1393.00 
+   51   2 [Dyt.laev]   1547.00   1779.00   1265.00   1565.00   1215.00   1650.00   1393.00 
+   58   1 [Dyt.gran]   1547.00   1779.00   1265.00   1565.00   1215.00   1650.00   1393.00 
+   49   2 [Aph.long]   1547.00   1779.00   1248.00   1565.00   1200.00   1650.00   1393.00 
+   48   2 [Aph.cons]   1547.00   1779.00   1248.00   1565.00   1200.00   1650.00   1393.00 
+   48   1 [Aph.cons]   1547.00   1779.00   1248.00   1565.00   1200.00   1650.00   1393.00 
+   50   1 [Dun.vari]   1547.00   1779.00   1248.00   1565.00   1200.00   1650.00   1393.00 
+   54   1 [Pse.comm]   1547.00   1771.00   1248.00   1560.00   1200.00   1650.00   1393.00 
+   49   1 [Aph.long]   1547.00   1771.00   1248.00   1560.00   1200.00   1650.00   1393.00 
+   52   2 [Lab.plat]   1538.00   1771.00   1248.00   1560.00   1200.00   1650.00   1393.00 
+   52   1 [Lab.plat]   1538.00   1771.00   1248.00   1560.00   1200.00   1650.00   1393.00 
+   57   2 [Ang.digi]   1538.00   1751.00   1248.00   1560.00   1200.00   1650.00   1393.00 
+   43   2 [Dic.perf]   1538.00   1751.00   1248.00   1560.00   1200.00   1650.00   1393.00 
+   53   1 [Lab.conv]   1538.00   1751.00   1248.00   1560.00   1200.00   1650.00   1393.00 
+   55   1 [Ang.tria]   1538.00   1751.00   1247.00   1560.00   1200.00   1650.00   1393.00 
+   47   2 [Ger.tumi]   1532.00   1751.00   1247.00   1559.00   1200.00   1650.00   1393.00 
+   56   1 [Pse.jose]   1532.00   1751.00   1247.00   1559.00   1200.00   1650.00   1393.00 
+   51   1 [Dyt.laev]   1532.00   1751.00   1247.00   1559.00   1200.00   1647.00   1393.00 
+   45   2 [Raa.orna]   1532.00   1751.00   1247.00   1559.00   1190.00   1647.00   1393.00 
+   25   2 [spiculeC]   1532.00   1744.00   1247.00   1559.00   1190.00   1647.00   1369.00 
+   46   2 [Che.minu]   1532.00   1744.00   1247.00   1559.00   1190.00   1647.00   1369.00 
+   57   1 [Ang.digi]   1532.00   1744.00   1247.00   1559.00   1190.00   1647.00   1369.00 
+   46   1 [Che.minu]   1532.00   1744.00   1223.00   1559.00   1190.00   1638.00   1369.00 
+   44   2 [Aph.spin]   1532.00   1744.00   1223.00   1559.00   1190.00   1638.00   1369.00 
+   44   1 [Aph.spin]   1532.00   1744.00   1223.00   1559.00   1190.00   1638.00   1369.00 
+   47   1 [Ger.tumi]   1529.00   1744.00   1223.00   1559.00   1180.00   1622.00   1369.00 
+   38   2 [Cre.perp]   1529.00   1744.00   1223.00   1557.00   1180.00   1622.00   1369.00 
+   31   2 [Coo.albe]   1529.00   1744.00   1223.00   1557.00   1180.00   1622.00   1369.00 
+   35   2 [Mar.aris]   1529.00   1744.00   1223.00   1557.00   1180.00   1622.00   1369.00 
+   22   2 [Tri.cori]   1529.00   1744.00   1223.00   1557.00   1180.00   1622.00   1369.00 
+   39   2 [Lla.pecu]   1529.00   1744.00   1223.00   1557.00   1180.00   1622.00   1369.00 
+   41   1 [Che.brev]   1529.00   1744.00   1223.00   1557.00   1180.00   1622.00   1369.00 
+   45   1 [Raa.orna]   1529.00   1744.00   1223.00   1557.00   1180.00   1622.00   1369.00 
+   38   1 [Cre.perp]   1529.00   1744.00   1223.00   1557.00   1180.00   1622.00   1369.00 
+   42   1 [Aph.walc]   1529.00   1744.00   1223.00   1557.00   1180.00   1622.00   1369.00 
+   43   1 [Dic.perf]   1529.00   1744.00   1223.00   1557.00   1125.00   1618.00   1369.00 
+   36   2 [Met.lois]   1516.00   1725.00   1223.00   1548.00   1125.00   1618.00   1369.00 
+   40   2 [Cre.iowe]   1516.00   1725.00   1223.00   1548.00   1125.00   1618.00   1369.00 
+   36   1 [Met.lois]   1516.00   1725.00   1223.00   1548.00   1125.00   1618.00   1369.00 
+   40   1 [Cre.iowe]   1516.00   1725.00   1223.00   1548.00   1125.00   1609.00   1369.00 
+   21   2 [Opi.depr]   1504.00   1725.00   1223.00   1548.00   1125.00   1609.00   1369.00 
+   17   2 [spiculeB]   1504.00   1725.00   1223.00   1537.00   1125.00   1609.00   1369.00 
+   26   2 [Kin.pont]   1504.00   1706.00   1223.00   1537.00   1125.00   1609.00   1369.00 
+   18   2 [Pse.nord]   1504.00   1706.00   1223.00   1537.00   1125.00   1609.00   1369.00 
+   39   1 [Lla.pecu]   1504.00   1706.00   1218.00   1537.00   1125.00   1609.00   1369.00 
+   33   2 [Lla.undu]   1504.00   1706.00   1201.00   1537.00   1125.00   1609.00   1369.00 
+   34   2 [Lla.gran]   1504.00   1706.00   1201.00   1537.00   1125.00   1609.00   1369.00 
+   32   2 [Cre.aust]   1504.00   1706.00   1201.00   1537.00   1125.00   1609.00   1369.00 
+   37   2 [Pem.inex]   1504.00   1706.00   1201.00   1537.00   1125.00   1609.00   1369.00 
+   37   1 [Pem.inex]   1504.00   1706.00   1201.00   1537.00   1125.00   1609.00   1369.00 
+   35   1 [Mar.aris]   1504.00   1706.00   1201.00   1537.00   1125.00   1609.00   1369.00 
+   31   1 [Coo.albe]   1504.00   1706.00   1201.00   1537.00   1125.00   1602.00   1369.00 
+   34   1 [Lla.gran]   1504.00   1706.00   1201.00   1537.00   1125.00   1602.00   1325.00 
+   33   1 [Lla.undu]   1504.00   1706.00   1201.00   1537.00   1125.00   1602.00   1325.00 
+   30   2 [Coo.widn]   1485.00   1695.00   1163.00   1507.00   1125.00   1602.00   1325.00 
+   28   2 [Lla.mode]   1485.00   1695.00   1163.00   1507.00   1125.00   1602.00   1295.00 
+    6   2 [Kor.simp]   1485.00   1677.00   1144.00   1507.00   1125.00   1602.00   1295.00 
+   29   2 [Met.metr]   1485.00   1677.00   1144.00   1507.00   1125.00   1602.00   1295.00 
+   24   2 [spiculeA]   1475.00   1677.00   1144.00   1507.00   1125.00   1602.00   1295.00 
+   28   1 [Lla.mode]   1472.00   1677.00   1144.00   1507.00   1125.00   1602.00   1295.00 
+   32   1 [Cre.aust]   1469.00   1655.00   1144.00   1507.00   1125.00   1602.00   1295.00 
+   14   2 [Kin.vari]   1467.00   1655.00   1132.00   1468.00   1125.00   1602.00   1295.00 
+   30   1 [Coo.widn]   1464.00   1655.00   1132.00   1468.00   1125.00   1602.00   1295.00 
+   23   2 [Tri.texa]   1453.00   1655.00   1132.00   1468.00   1125.00   1602.00   1295.00 
+   13   2 [Coo.belt]   1453.00   1628.00   1132.00   1468.00   1125.00   1602.00   1295.00 
+   62   2 [Die.aste]   1453.00   1628.00   1132.00   1468.00   1125.00   1602.00   1295.00 
+   20   2 [Arc.conv]   1453.00   1628.00   1132.00   1468.00   1125.00   1602.00   1295.00 
+   11   2 [Gen.spin]   1446.00   1628.00   1132.00   1468.00   1125.00   1602.00   1295.00 
+    1   2 [Hol.tene]   1446.00   1628.00   1132.00   1468.00   1125.00   1602.00   1295.00 
+   15   2 [Coo.gran]   1446.00   1628.00   1132.00   1468.00   1125.00   1602.00   1295.00 
+   27   2 [Lla.virg]   1446.00   1628.00   1132.00   1468.00   1125.00   1602.00   1295.00 
+   62   1 [Die.aste]   1446.00   1628.00   1132.00   1468.00   1125.00   1602.00   1295.00 
+   27   1 [Lla.virg]   1446.00   1628.00   1132.00   1468.00   1125.00   1602.00   1295.00 
+   26   1 [Kin.pont]   1446.00   1628.00   1132.00   1468.00   1125.00   1602.00   1295.00 
+   29   1 [Met.metr]   1446.00   1628.00   1132.00   1468.00   1125.00   1602.00   1295.00 
+   18   1 [Pse.nord]   1446.00   1628.00   1132.00   1450.00   1125.00   1602.00   1295.00 
+   20   1 [Arc.conv]   1446.00   1628.00   1120.00   1450.00   1125.00   1602.00   1295.00 
+   12   2 [Aps.orif]   1419.00   1628.00   1120.00   1450.00   1125.00   1602.00   1295.00 
+   19   2 [Nor.quad]   1419.00   1628.00   1120.00   1450.00   1125.00   1602.00   1295.00 
+   16   2 [Coo.conn]   1419.00   1628.00   1120.00   1450.00   1125.00   1602.00   1295.00 
+   11   1 [Gen.spin]   1419.00   1628.00   1120.00   1450.00   1125.00   1602.00   1295.00 
+   25   1 [spiculeC]   1419.00   1628.00   1120.00   1450.00   1085.00   1602.00   1295.00 
+   22   1 [Tri.cori]   1419.00   1628.00   1120.00   1450.00   1085.00   1602.00   1295.00 
+   23   1 [Tri.texa]   1419.00   1586.00   1120.00   1450.00   1085.00   1602.00   1287.00 
+   15   1 [Coo.gran]   1419.00   1582.00   1120.00   1450.00   1085.00   1602.00   1287.00 
+   21   1 [Opi.depr]   1419.00   1582.00   1120.00   1450.00   1085.00   1602.00   1287.00 
+   19   1 [Nor.quad]   1419.00   1582.00   1120.00   1450.00   1085.00   1541.00   1287.00 
+   16   1 [Coo.conn]   1419.00   1582.00   1120.00   1450.00   1085.00   1541.00   1287.00 
+   13   1 [Coo.belt]   1419.00   1582.00   1120.00   1450.00   1085.00   1541.00   1287.00 
+   24   1 [spiculeA]   1419.00   1561.00   1120.00   1450.00   1085.00   1541.00   1287.00 
+    1   1 [Hol.tene]   1419.00   1561.00   1120.00   1450.00   1085.00   1541.00   1287.00 
+   17   1 [spiculeB]   1419.00   1561.00   1120.00   1450.00   1085.00   1541.00   1287.00 
+    9   2 [Met.robu]   1373.00   1460.00   1042.00   1450.00   1085.00   1541.00   1183.00 
+   10   2 [Sys.camu]   1373.00   1460.00   1042.00   1450.00   1085.00   1541.00   1183.00 
+    7   2 [Ced.eury]   1373.00   1460.00   1042.00   1450.00   1085.00   1541.00   1162.00 
+    9   1 [Met.robu]   1373.00   1460.00   1042.00   1450.00   1085.00   1541.00   1162.00 
+   14   1 [Kin.vari]   1373.00   1460.00   1042.00   1450.00   1085.00   1541.00   1162.00 
+   10   1 [Sys.camu]   1373.00   1460.00   1042.00   1327.00   1085.00   1425.00   1162.00 
+    7   1 [Ced.eury]   1373.00   1460.00   1042.00   1327.00   1085.00   1425.00   1105.00 
+   12   1 [Aps.orif]   1373.00   1460.00   1042.00   1327.00   1085.00   1425.00   1000.00 
+    5   2 [Ced.cord]   1299.00   1460.00   1042.00   1327.00   1085.00   1425.00   1000.00 
+    6   1 [Kor.simp]   1299.00   1460.00   1042.00   1327.00   1085.00   1395.00   1000.00 
+    8   2 [Mod.cent]   1283.00   1341.00   1042.00   1324.00   1085.00   1354.00   1000.00 
+    8   1 [Mod.cent]   1283.00   1341.00   1042.00   1324.00   1085.00   1354.00   1000.00 
+    5   1 [Ced.cord]   1283.00   1341.00   1042.00   1324.00   1085.00   1350.00   1000.00 
+    4   2 [Bol.burn]   1222.00   1341.00   1042.00   1252.00   1085.00   1326.00   1000.00 
+    4   1 [Bol.burn]   1222.00   1341.00   1042.00   1252.00   1085.00   1320.00   1000.00 
+    3   2 [Bol.well]   1222.00   1341.00   1042.00   1252.00   1085.00   1279.00   1000.00 
+    2   2 [Mod.owen]   1222.00   1252.00   1042.00   1252.00   1085.00   1279.00   1000.00 
+    3   1 [Bol.well]   1222.00   1252.00   1042.00   1252.00   1085.00   1279.00   1000.00 
+    2   1 [Mod.owen]   1222.00   1247.00   1042.00   1252.00   1085.00   1279.00   1000.00 
+_____________________________________________
+
+ OBSERVED HORIZONS:
+ Event and Observed Level in Sections   1 -  7
+  (sections: Mor Wht Jms Lln Lio Pon Str)
+next data table, unlabelled = ab.dat
+   61   2 [Dys.loch]   1574.00      none      none      none      none      none      none 
+   59   2 [Aps.expa]   1574.00   1808.00      none      none   1230.00      none      none 
+   61   1 [Dys.loch]   1574.00      none      none      none      none      none      none 
+   58   2 [Dyt.gran]      none   1795.00   1275.00      none   1230.00      none      none 
+   60   2 [Lab.sigm]      none   1795.00      none      none      none      none      none 
+   50   2 [Dun.vari]   1570.00   1795.00      none   1589.00   1230.00      none      none 
+   60   1 [Lab.sigm]      none   1795.00      none      none      none      none      none 
+   42   2 [Aph.walc]   1561.00   1771.00   1265.00   1592.00   1215.00   1655.00   1412.00 
+   41   2 [Che.brev]   1570.00      none      none   1558.00   1230.00   1639.00      none 
+   59   1 [Aps.expa]   1574.00   1784.00      none      none   1230.00      none      none 
+   55   2 [Ang.tria]   1570.00   1779.00   1267.00   1565.00   1215.00   1655.00   1396.00 
+   56   2 [Pse.jose]      none      none      none      none      none   1650.00      none 
+   53   2 [Lab.conv]   1570.00   1775.00   1265.00      none   1215.00   1650.00      none 
+   54   2 [Pse.comm]   1561.00      none      none      none   1215.00      none      none 
+   51   2 [Dyt.laev]      none      none      none      none   1215.00      none      none 
+   58   1 [Dyt.gran]      none   1795.00   1275.00      none   1215.00      none      none 
+   49   2 [Aph.long]   1547.00      none      none      none   1200.00      none      none 
+   48   2 [Aph.cons]   1547.00      none      none      none   1200.00      none      none 
+   48   1 [Aph.cons]   1547.00      none      none      none   1200.00      none      none 
+   50   1 [Dun.vari]   1547.00   1795.00      none   1589.00   1200.00      none      none 
+   54   1 [Pse.comm]   1561.00      none      none      none   1200.00      none      none 
+   49   1 [Aph.long]   1547.00      none      none      none   1200.00      none      none 
+   52   2 [Lab.plat]      none   1771.00      none      none      none      none      none 
+   52   1 [Lab.plat]      none   1771.00      none      none      none      none      none 
+   57   2 [Ang.digi]      none   1751.00   1248.00      none      none   1647.00      none 
+   43   2 [Dic.perf]   1538.00   1750.00   1248.00   1560.00      none      none   1387.00 
+   53   1 [Lab.conv]   1538.00   1775.00   1248.00      none   1200.00   1650.00      none 
+   55   1 [Ang.tria]   1538.00   1756.00   1247.00   1565.00   1200.00   1652.00   1396.00 
+   47   2 [Ger.tumi]      none      none      none   1559.00      none      none      none 
+   56   1 [Pse.jose]      none      none      none      none      none   1650.00      none 
+   51   1 [Dyt.laev]      none      none      none      none   1200.00      none      none 
+   45   2 [Raa.orna]   1532.00   1751.00      none   1559.00   1190.00   1647.00   1393.00 
+   25   2 [spiculeC]      none   1744.00      none   1559.00   1085.00   1647.00      none 
+   46   2 [Che.minu]      none      none      none   1559.00      none      none      none 
+   57   1 [Ang.digi]      none   1750.00   1248.00      none      none   1647.00      none 
+   46   1 [Che.minu]      none      none      none   1559.00      none      none      none 
+   44   2 [Aph.spin]   1532.00      none      none      none   1190.00   1638.00      none 
+   44   1 [Aph.spin]   1532.00      none      none      none   1190.00   1638.00      none 
+   47   1 [Ger.tumi]      none      none      none   1559.00      none      none      none 
+   38   2 [Cre.perp]   1529.00      none      none   1557.00      none      none      none 
+   31   2 [Coo.albe]   1516.00      none   1223.00   1557.00   1180.00   1618.00   1369.00 
+   35   2 [Mar.aris]   1529.00   1706.00   1223.00   1557.00   1180.00   1622.00   1369.00 
+   22   2 [Tri.cori]   1529.00   1706.00   1218.00   1557.00   1180.00   1622.00   1369.00 
+   39   2 [Lla.pecu]   1516.00      none   1218.00   1557.00      none      none   1369.00 
+   41   1 [Che.brev]   1529.00      none      none   1558.00   1190.00   1639.00      none 
+   45   1 [Raa.orna]   1529.00   1750.00      none   1558.00   1190.00   1647.00   1387.00 
+   38   1 [Cre.perp]   1529.00      none      none   1557.00      none      none      none 
+   42   1 [Aph.walc]   1530.00   1744.00   1247.00   1557.00   1190.00   1636.00   1387.00 
+   43   1 [Dic.perf]   1529.00   1750.00   1247.00   1559.00      none      none   1387.00 
+   36   2 [Met.lois]      none      none      none      none      none   1618.00      none 
+   40   2 [Cre.iowe]   1516.00      none      none      none      none      none      none 
+   36   1 [Met.lois]      none      none      none      none      none   1618.00      none 
+   40   1 [Cre.iowe]   1516.00      none      none      none      none      none      none 
+   21   2 [Opi.depr]   1494.00   1725.00   1221.00   1548.00   1085.00   1602.00   1369.00 
+   17   2 [spiculeB]   1504.00   1725.00   1223.00   1537.00      none      none   1325.00 
+   26   2 [Kin.pont]   1475.00   1706.00   1223.00   1486.00   1125.00      none      none 
+   18   2 [Pse.nord]      none   1628.00   1223.00   1450.00   1125.00      none   1369.00 
+   39   1 [Lla.pecu]   1516.00      none   1218.00   1557.00      none      none   1369.00 
+   33   2 [Lla.undu]   1504.00   1706.00   1201.00   1537.00      none      none      none 
+   34   2 [Lla.gran]   1504.00      none      none   1537.00      none      none      none 
+   32   2 [Cre.aust]   1483.00      none   1201.00   1507.00      none   1609.00      none 
+   37   2 [Pem.inex]      none      none   1201.00      none      none      none      none 
+   37   1 [Pem.inex]      none      none   1201.00      none      none      none      none 
+   35   1 [Mar.aris]   1504.00   1706.00   1201.00   1537.00   1155.00   1618.00   1369.00 
+   31   1 [Coo.albe]   1516.00      none   1201.00   1557.00   1180.00   1602.00   1369.00 
+   34   1 [Lla.gran]   1504.00      none      none   1537.00      none      none      none 
+   33   1 [Lla.undu]   1504.00   1706.00   1201.00   1537.00      none      none      none 
+   30   2 [Coo.widn]   1472.00      none   1163.00      none      none      none   1325.00 
+   28   2 [Lla.mode]   1483.00   1695.00   1163.00      none      none      none      none 
+    6   2 [Kor.simp]   1485.00   1655.00   1132.00   1450.00   1125.00   1425.00   1105.00 
+   29   2 [Met.metr]   1485.00   1677.00      none   1507.00   1125.00      none   1295.00 
+   24   2 [spiculeA]   1475.00      none      none      none      none      none      none 
+   28   1 [Lla.mode]   1472.00   1695.00   1144.00      none      none      none      none 
+   32   1 [Cre.aust]   1469.00      none   1201.00   1507.00      none   1602.00      none 
+   14   2 [Kin.vari]   1467.00   1653.00   1132.00   1450.00      none   1594.00   1287.00 
+   30   1 [Coo.widn]   1464.00      none   1163.00      none      none      none   1325.00 
+   23   2 [Tri.texa]   1419.00   1655.00   1120.00      none   1085.00      none      none 
+   13   2 [Coo.belt]   1453.00   1628.00   1132.00   1468.00   1125.00   1541.00   1295.00 
+   62   2 [Die.aste]   1453.00      none      none      none      none      none      none 
+   20   2 [Arc.conv]   1453.00      none   1132.00      none   1125.00      none      none 
+   11   2 [Gen.spin]   1419.00      none      none      none   1125.00      none      none 
+    1   2 [Hol.tene]   1446.00      none      none      none   1085.00      none      none 
+   15   2 [Coo.gran]   1446.00      none   1132.00      none   1085.00      none      none 
+   27   2 [Lla.virg]      none   1628.00      none      none      none      none      none 
+   62   1 [Die.aste]   1446.00      none      none      none      none      none      none 
+   27   1 [Lla.virg]      none   1628.00      none      none      none      none      none 
+   26   1 [Kin.pont]   1453.00   1628.00   1201.00   1468.00   1125.00      none      none 
+   29   1 [Met.metr]   1446.00   1628.00      none   1507.00   1125.00      none   1295.00 
+   18   1 [Pse.nord]      none   1628.00   1223.00   1450.00   1125.00      none   1369.00 
+   20   1 [Arc.conv]   1453.00      none   1120.00      none   1125.00      none      none 
+   12   2 [Aps.orif]   1419.00      none   1042.00      none      none      none      none 
+   19   2 [Nor.quad]   1419.00      none      none      none      none      none      none 
+   16   2 [Coo.conn]   1419.00   1582.00      none      none      none      none      none 
+   11   1 [Gen.spin]   1419.00      none      none      none   1125.00      none      none 
+   25   1 [spiculeC]      none   1744.00      none   1558.00   1085.00   1647.00      none 
+   22   1 [Tri.cori]   1419.00   1628.00   1120.00   1468.00   1085.00   1622.00   1369.00 
+   23   1 [Tri.texa]   1419.00   1586.00   1120.00      none   1085.00      none      none 
+   15   1 [Coo.gran]   1419.00      none   1120.00      none   1085.00      none      none 
+   21   1 [Opi.depr]   1446.00   1582.00   1120.00   1468.00   1085.00   1602.00   1287.00 
+   19   1 [Nor.quad]   1419.00      none      none      none      none      none      none 
+   16   1 [Coo.conn]   1419.00   1582.00      none      none      none      none      none 
+   13   1 [Coo.belt]   1419.00   1628.00   1120.00   1450.00   1085.00   1541.00   1295.00 
+   24   1 [spiculeA]   1419.00      none      none      none      none      none      none 
+    1   1 [Hol.tene]   1446.00      none      none      none   1085.00      none      none 
+   17   1 [spiculeB]   1464.00   1561.00   1144.00   1450.00      none      none   1287.00 
+    9   2 [Met.robu]   1373.00      none   1042.00      none      none      none   1183.00 
+   10   2 [Sys.camu]   1373.00      none   1042.00      none      none      none   1183.00 
+    7   2 [Ced.eury]   1373.00   1460.00      none      none      none      none   1130.00 
+    9   1 [Met.robu]   1373.00      none   1042.00      none      none      none   1162.00 
+   14   1 [Kin.vari]   1373.00   1561.00   1042.00   1450.00      none   1541.00   1183.00 
+   10   1 [Sys.camu]   1373.00      none   1042.00      none      none      none   1162.00 
+    7   1 [Ced.eury]   1373.00   1460.00      none      none      none      none   1105.00 
+   12   1 [Aps.orif]   1419.00      none   1042.00      none      none      none      none 
+    5   2 [Ced.cord]   1299.00      none      none   1327.00      none   1425.00   1000.00 
+    6   1 [Kor.simp]   1299.00   1460.00   1042.00   1450.00   1125.00   1395.00   1105.00 
+    8   2 [Mod.cent]      none      none      none      none      none   1354.00      none 
+    8   1 [Mod.cent]      none      none      none      none      none   1354.00      none 
+    5   1 [Ced.cord]   1283.00      none      none   1324.00      none   1350.00   1000.00 
+    4   2 [Bol.burn]   1222.00      none      none   1252.00      none   1326.00      none 
+    4   1 [Bol.burn]   1222.00      none      none   1252.00      none   1320.00      none 
+    3   2 [Bol.well]      none   1341.00      none      none      none   1279.00      none 
+    2   2 [Mod.owen]      none   1252.00      none      none      none      none      none 
+    3   1 [Bol.well]      none   1252.00      none      none      none   1279.00      none 
+    2   1 [Mod.owen]      none   1247.00      none      none      none      none      none 
+______________________________________________
+ZERO-MEAN STD COMPOSITE SECTION
+ Event   Type   Space-Below   Level-Placed   Sections     Name
+      2      1      0.0000   1000.0000      0  {[Mod.owen]   Modocia cf.oweni FAD  (C#  3)  (tag: not assigned)                                     
+      3      1      1.0873   1001.0873      1  {[Bol.well]   Bolaspidella wellsvillensis FAD  (C#  5)  (tag: not assigned)                          
+      2      2      0.0000   1001.0873      1  {[Mod.owen]   Modocia cf.oweni LAD  (C#  4)  (tag: not assigned)                                     
+      3      2     19.3547   1020.4421      1  {[Bol.well]   Bolaspidella wellsvillensis LAD  (C#  6)  (tag: not assigned)                          
+      4      1      5.9973   1026.4394      2  {[Bol.burn]   Bolaspidella burnetensis FAD  (C#  7)  (tag: not assigned)                             
+      4      2      0.8777   1027.3171      2  {[Bol.burn]   Bolaspidella burnetensis LAD  (C#  8)  (tag: not assigned)                             
+      5      1     12.6574   1039.9744      4  {[Ced.cord]   Cedarina cordilleras FAD  (C#  9)  (tag: not assigned)                                 
+      8      1      0.2926   1040.2670      4  {[Mod.cent]   Modocia cf.centralis FAD  (C#  15)  (tag: not assigned)                                
+      8      2      0.0000   1040.2670      4  {[Mod.cent]   Modocia cf.centralis LAD  (C#  16)  (tag: not assigned)                                
+      6      1     11.0314   1051.2984      4  {[Kor.simp]   Kormagnostus simplex FAD  (C#  11)  (tag: not assigned)                                
+      5      2      2.1941   1053.4925      4  {[Ced.cord]   Cedarina cordilleras LAD  (C#  10)  (tag: not assigned)                                
+     12      1      6.0966   1059.5891      4  {[Aps.orif]   Apsotreta orifera FAD  (C#  23)  (tag: not assigned)                                   
+      7      1      5.3519   1064.9411      5  {[Ced.eury]   Cedarina eurycheilos FAD  (C#  13)  (tag: not assigned)                                
+     10      1      2.9053   1067.8464      5  {[Sys.camu]   Syspacheilus cf.camurus FAD  (C#  19)  (tag: not assigned)                             
+     14      1     14.8184   1082.6648      5  {[Kin.vari]   Kinsabia varigata FAD  (C#  27)  (tag: not assigned)                                   
+      9      1      0.0000   1082.6648      5  {[Met.robu]   Meteoraspis cf.robusta FAD  (C#  17)  (tag: not assigned)                              
+      7      2      0.0000   1082.6648      5  {[Ced.eury]   Cedarina eurycheilos LAD  (C#  14)  (tag: not assigned)                                
+     10      2      1.0704   1083.7352      5  {[Sys.camu]   Syspacheilus cf.camurus LAD  (C#  20)  (tag: not assigned)                             
+      9      2      0.0000   1083.7352      5  {[Met.robu]   Meteoraspis cf.robusta LAD  (C#  18)  (tag: not assigned)                              
+     17      1     16.2957   1100.0309      6  {[spiculeB]   Sponge spicule B FAD  (C#  33)  (tag: not assigned)                                    
+      1      1      0.0000   1100.0309      6  {[Hol.tene]   Holcacephalus tenerus FAD  (C#  1)  (tag: not assigned)                                
+     24      1      0.0000   1100.0309      6  {[spiculeA]   Sponge spicule A FAD  (C#  47)  (tag: not assigned)                                    
+     13      1      0.7611   1100.7920      6  {[Coo.belt]   Coosella beltensis FAD  (C#  25)  (tag: not assigned)                                  
+     16      1      0.0000   1100.7920      6  {[Coo.conn]   Coosia connata FAD  (C#  31)  (tag: not assigned)                                      
+     19      1      0.0000   1100.7920      6  {[Nor.quad]   Norwoodia quadrangularis FAD  (C#  37)  (tag: not assigned)                            
+     21      1      2.9743   1103.7663      6  {[Opi.depr]   Opisthotreta depressa FAD  (C#  41)  (tag: not assigned)                               
+     15      1      0.0000   1103.7663      6  {[Coo.gran]   Coosella granulosa FAD  (C#  29)  (tag: not assigned)                                  
+     23      1      0.1450   1103.9113      6  {[Tri.texa]   Tricrepicephalus texanus FAD  (C#  45)  (tag: not assigned)                            
+     22      1      1.8621   1105.7734      6  {[Tri.cori]   Tricrepicephalus coria FAD  (C#  43)  (tag: not assigned)                              
+     25      1      0.0000   1105.7734      6  {[spiculeC]   Sponge spicule C FAD  (C#  49)  (tag: not assigned)                                    
+     11      1      3.3498   1109.1232      7  {[Gen.spin]   Genevievella cf.spinosa FAD  (C#  21)  (tag: not assigned)                             
+     16      2      0.0000   1109.1232      7  {[Coo.conn]   Coosia connata LAD  (C#  32)  (tag: not assigned)                                      
+     19      2      0.0000   1109.1232      7  {[Nor.quad]   Norwoodia quadrangularis LAD  (C#  38)  (tag: not assigned)                            
+     12      2      0.0000   1109.1232      7  {[Aps.orif]   Apsotreta orifera LAD  (C#  24)  (tag: not assigned)                                   
+     20      1      1.2711   1110.3943      7  {[Arc.conv]   Arcuolimbus convexus FAD  (C#  39)  (tag: not assigned)                                
+     18      1      0.7505   1111.1447      7  {[Pse.nord]   Pseudagnostus? nordicus FAD  (C#  35)  (tag: not assigned)                             
+     29      1      0.8395   1111.9842      7  {[Met.metr]   Metoeraspis metra FAD  (C#  57)  (tag: not assigned)                                   
+     26      1      0.0000   1111.9842      7  {[Kin.pont]   Kingstonia pontotocensis FAD  (C#  51)  (tag: not assigned)                            
+     27      1      0.0000   1111.9842      7  {[Lla.virg]   Llanoaspis virginica FAD  (C#  53)  (tag: not assigned)                                
+     62      1      0.0000   1111.9842      7  {[Die.aste]   Dieracephalus aster FAD  (C#  123)  (tag: not assigned)                                
+     27      2      0.0000   1111.9842      7  {[Lla.virg]   Llanoaspis virginica LAD  (C#  54)  (tag: not assigned)                                
+     15      2      0.0000   1111.9842      7  {[Coo.gran]   Coosella granulosa LAD  (C#  30)  (tag: not assigned)                                  
+      1      2      0.0000   1111.9842      7  {[Hol.tene]   Holcacephalus tenerus LAD  (C#  2)  (tag: not assigned)                                
+     11      2      0.0000   1111.9842      7  {[Gen.spin]   Genevievella cf.spinosa LAD  (C#  22)  (tag: not assigned)                             
+     20      2      0.3295   1112.3138      7  {[Arc.conv]   Arcuolimbus convexus LAD  (C#  40)  (tag: not assigned)                                
+     62      2      0.0000   1112.3138      7  {[Die.aste]   Dieracephalus aster LAD  (C#  124)  (tag: not assigned)                                
+     13      2      0.0000   1112.3138      7  {[Coo.belt]   Coosella beltensis LAD  (C#  26)  (tag: not assigned)                                  
+     23      2      0.8388   1113.1526      7  {[Tri.texa]   Tricrepicephalus texanus LAD  (C#  46)  (tag: not assigned)                            
+     30      1      0.5179   1113.6704      7  {[Coo.widn]   Coosella cf.widnerensis FAD  (C#  59)  (tag: not assigned)                             
+     14      2      0.1412   1113.8117      7  {[Kin.vari]   Kinsabia varigata LAD  (C#  28)  (tag: not assigned)                                   
+     32      1      2.6635   1116.4752      7  {[Cre.aust]   Crepicephalus australis FAD  (C#  63)  (tag: not assigned)                             
+     28      1      0.8247   1117.2999      7  {[Lla.mode]   Llanoaspis modesta FAD  (C#  55)  (tag: not assigned)                                  
+     24      2      0.1412   1117.4411      7  {[spiculeA]   Sponge spicule A LAD  (C#  48)  (tag: not assigned)                                    
+     29      2      0.4708   1117.9119      7  {[Met.metr]   Metoeraspis metra LAD  (C#  58)  (tag: not assigned)                                   
+      6      2      0.0000   1117.9119      7  {[Kor.simp]   Kormagnostus simplex LAD  (C#  12)  (tag: not assigned)                                
+     28      2      1.7474   1119.6593      7  {[Lla.mode]   Llanoaspis modesta LAD  (C#  56)  (tag: not assigned)                                  
+     30      2      1.0922   1120.7516      7  {[Coo.widn]   Coosella cf.widnerensis LAD  (C#  60)  (tag: not assigned)                             
+     33      1      5.0118   1125.7634      7  {[Lla.undu]   Llanoaspis undulata FAD  (C#  65)  (tag: not assigned)                                 
+     34      1      0.0000   1125.7634      7  {[Lla.gran]   Llanoaspis undulata granulata FAD  (C#  67)  (tag: not assigned)                       
+     31      1      1.6019   1127.3653      7  {[Coo.albe]   Coosia cf.albertensis FAD  (C#  61)  (tag: not assigned)                               
+     35      1      0.2926   1127.6579      7  {[Mar.aris]   Maryvillia cf.ariston FAD  (C#  69)  (tag: not assigned)                               
+     37      1      0.0000   1127.6579      7  {[Pem.inex]   Pemphigaspis inexpectans FAD  (C#  73)  (tag: not assigned)                            
+     37      2      0.0000   1127.6579      7  {[Pem.inex]   Pemphigaspis inexpectans LAD  (C#  74)  (tag: not assigned)                            
+     32      2      0.0000   1127.6579      7  {[Cre.aust]   Crepicephalus australis LAD  (C#  64)  (tag: not assigned)                             
+     34      2      0.0000   1127.6579      7  {[Lla.gran]   Llanoaspis undulata granulata LAD  (C#  68)  (tag: not assigned)                       
+     33      2      0.0000   1127.6579      7  {[Lla.undu]   Llanoaspis undulata LAD  (C#  66)  (tag: not assigned)                                 
+     39      1      1.0632   1128.7210      7  {[Lla.pecu]   Llanoaspis peculiaris FAD  (C#  77)  (tag: not assigned)                               
+     18      2      0.3127   1129.0337      7  {[Pse.nord]   Pseudagnostus? nordicus LAD  (C#  36)  (tag: not assigned)                             
+     26      2      0.0000   1129.0337      7  {[Kin.pont]   Kingstonia pontotocensis LAD  (C#  52)  (tag: not assigned)                            
+     17      2      0.5903   1129.6240      7  {[spiculeB]   Sponge spicule B LAD  (C#  34)  (tag: not assigned)                                    
+     21      2      0.5130   1130.1370      7  {[Opi.depr]   Opisthotreta depressa LAD  (C#  42)  (tag: not assigned)                               
+     40      1      0.5649   1130.7020      7  {[Cre.iowe]   Crepicephalus cf.iowensis FAD  (C#  79)  (tag: not assigned)                           
+     36      1      0.3761   1131.0781      7  {[Met.lois]   Meteoraspis cf.loisi FAD  (C#  71)  (tag: not assigned)                                
+     40      2      0.0000   1131.0781      7  {[Cre.iowe]   Crepicephalus cf.iowensis LAD  (C#  80)  (tag: not assigned)                           
+     36      2      0.0000   1131.0781      7  {[Met.lois]   Meteoraspis cf.loisi LAD  (C#  72)  (tag: not assigned)                                
+     43      1      1.6220   1132.7001      7  {[Dic.perf]   Dictyonina perforata FAD  (C#  85)  (tag: not assigned)                                
+     42      1      4.7731   1137.4732      7  {[Aph.walc]   Aphelaspis walcotti FAD  (C#  83)  (tag: not assigned)                                 
+     38      1      0.0000   1137.4732      7  {[Cre.perp]   Crepicephalus perplexus FAD  (C#  75)  (tag: not assigned)                             
+     45      1      0.0000   1137.4732      7  {[Raa.orna]   Raaschella ornata FAD  (C#  89)  (tag: not assigned)                                   
+     41      1      0.0000   1137.4732      7  {[Che.brev]   Cheilocephalus breviloba FAD  (C#  81)  (tag: not assigned)                            
+     39      2      0.0000   1137.4732      7  {[Lla.pecu]   Llanoaspis peculiaris LAD  (C#  78)  (tag: not assigned)                               
+     22      2      0.0000   1137.4732      7  {[Tri.cori]   Tricrepicephalus coria LAD  (C#  44)  (tag: not assigned)                              
+     35      2      0.0000   1137.4732      7  {[Mar.aris]   Maryvillia cf.ariston LAD  (C#  70)  (tag: not assigned)                               
+     31      2      0.0000   1137.4732      7  {[Coo.albe]   Coosia cf.albertensis LAD  (C#  62)  (tag: not assigned)                               
+     38      2      0.0000   1137.4732      7  {[Cre.perp]   Crepicephalus perplexus LAD  (C#  76)  (tag: not assigned)                             
+     47      1      0.0933   1137.5665      7  {[Ger.tumi]   Geragnostus cf.tumidosus FAD  (C#  93)  (tag: not assigned)                            
+     44      1      1.6474   1139.2139      7  {[Aph.spin]   Aphelaspis spinosa FAD  (C#  87)  (tag: not assigned)                                  
+     44      2      0.0000   1139.2139      7  {[Aph.spin]   Aphelaspis spinosa LAD  (C#  88)  (tag: not assigned)                                  
+     46      1      0.0000   1139.2139      7  {[Che.minu]   Cheilocephalus minutus FAD  (C#  91)  (tag: not assigned)                              
+     57      1      1.8771   1141.0909      7  {[Ang.digi]   Angulotreta triangularis digitalis FAD  (C#  113)  (tag: not assigned)                 
+     46      2      0.0000   1141.0909      7  {[Che.minu]   Cheilocephalus minutus LAD  (C#  92)  (tag: not assigned)                              
+     25      2      0.0000   1141.0909      7  {[spiculeC]   Sponge spicule C LAD  (C#  50)  (tag: not assigned)                                    
+     45      2      1.0913   1142.1822      7  {[Raa.orna]   Raaschella ornata LAD  (C#  90)  (tag: not assigned)                                   
+     51      1      0.8374   1143.0196      7  {[Dyt.laev]   Dytremacephalus laevis FAD  (C#  101)  (tag: not assigned)                             
+     56      1      0.1254   1143.1450      7  {[Pse.jose]   Pseudagnostus josephus FAD  (C#  111)  (tag: not assigned)                             
+     47      2      0.0000   1143.1450      7  {[Ger.tumi]   Geragnostus cf.tumidosus LAD  (C#  94)  (tag: not assigned)                            
+     55      1      0.3291   1143.4741      7  {[Ang.tria]   Angulotreta triangularis FAD  (C#  109)  (tag: not assigned)                           
+     53      1      0.0625   1143.5367      7  {[Lab.conv]   Labiostria conveximarginata FAD  (C#  105)  (tag: not assigned)                        
+     43      2      0.0000   1143.5367      7  {[Dic.perf]   Dictyonina perforata LAD  (C#  86)  (tag: not assigned)                                
+     57      2      0.0000   1143.5367      7  {[Ang.digi]   Angulotreta triangularis digitalis LAD  (C#  114)  (tag: not assigned)                 
+     52      1      0.6213   1144.1580      7  {[Lab.plat]   Labiostria platifrons FAD  (C#  103)  (tag: not assigned)                              
+     52      2      0.0000   1144.1580      7  {[Lab.plat]   Labiostria platifrons LAD  (C#  104)  (tag: not assigned)                              
+     49      1      0.4237   1144.5817      7  {[Aph.long]   Aphelaspis longifrons FAD  (C#  97)  (tag: not assigned)                               
+     54      1      0.0000   1144.5817      7  {[Pse.comm]   Pseudagnostus communis FAD  (C#  107)  (tag: not assigned)                             
+     50      1      0.4817   1145.0634      7  {[Dun.vari]   Dunderbergia variagranula FAD  (C#  99)  (tag: not assigned)                           
+     48      1      0.0000   1145.0634      7  {[Aph.cons]   Aphelaspis constricta FAD  (C#  95)  (tag: not assigned)                               
+     48      2      0.0000   1145.0634      7  {[Aph.cons]   Aphelaspis constricta LAD  (C#  96)  (tag: not assigned)                               
+     49      2      0.0000   1145.0634      7  {[Aph.long]   Aphelaspis longifrons LAD  (C#  98)  (tag: not assigned)                               
+     58      1      2.3193   1147.3827      7  {[Dyt.gran]   Dytremacephalus granulosus FAD  (C#  115)  (tag: not assigned)                         
+     51      2      0.0000   1147.3827      7  {[Dyt.laev]   Dytremacephalus laevis LAD  (C#  102)  (tag: not assigned)                             
+     54      2      0.6591   1148.0418      7  {[Pse.comm]   Pseudagnostus communis LAD  (C#  108)  (tag: not assigned)                             
+     53      2      0.4237   1148.4655      7  {[Lab.conv]   Labiostria conveximarginata LAD  (C#  106)  (tag: not assigned)                        
+     56      2      0.0000   1148.4655      7  {[Pse.jose]   Pseudagnostus josephus LAD  (C#  112)  (tag: not assigned)                             
+     55      2      0.4433   1148.9088      7  {[Ang.tria]   Angulotreta triangularis LAD  (C#  110)  (tag: not assigned)                           
+     59      1      1.4655   1150.3743      6  {[Aps.expa]   Apsotreta expansus FAD  (C#  117)  (tag: not assigned)                                 
+     41      2      0.0000   1150.3743      5  {[Che.brev]   Cheilocephalus breviloba LAD  (C#  82)  (tag: not assigned)                            
+     42      2      2.5785   1152.9528      5  {[Aph.walc]   Aphelaspis walcotti LAD  (C#  84)  (tag: not assigned)                                 
+     60      1      1.1598   1154.1126      3  {[Lab.sigm]   Labiostria sigmoidalis FAD  (C#  119)  (tag: not assigned)                             
+     50      2      0.0000   1154.1126      3  {[Dun.vari]   Dunderbergia variagranula LAD  (C#  100)  (tag: not assigned)                          
+     60      2      0.0000   1154.1126      3  {[Lab.sigm]   Labiostria sigmoidalis LAD  (C#  120)  (tag: not assigned)                             
+     58      2      1.1674   1155.2800      3  {[Dyt.gran]   Dytremacephalus granulosus LAD  (C#  116)  (tag: not assigned)                         
+     61      1      0.6591   1155.9391      2  {[Dys.loch]   Dysoristus lochmanae FAD  (C#  121)  (tag: not assigned)                               
+     59      2      2.8271   1158.7662      1  {[Aps.expa]   Apsotreta expansus LAD  (C#  118)  (tag: not assigned)                                 
+     61      2      0.0000   1158.7662      0  {[Dys.loch]   Dysoristus lochmanae LAD  (C#  122)  (tag: not assigned)                               
