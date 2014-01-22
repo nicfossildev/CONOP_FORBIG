@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Drawing;
 using System.IO;
+using System.Threading;
+using System.Threading.Tasks;
 #if SWT_CHECK_VIA_GETPEN
 using System.Diagnostics;
 #endif
@@ -125,7 +127,12 @@ namespace CONOP.NET
 #endif
             )
         {
-             double DELTA;
+
+#if TIMEANALYSIS
+            ConsoleCONOP.StartSharedStopWatch();
+#endif
+
+            double DELTA;
 
             double U;
             int INNER, IRANK, JRANK, LAST, OUTER, NCTR, FIXM, NABRM;
@@ -868,6 +875,14 @@ namespace CONOP.NET
             WritePara.closeSW_STATIC();
 #endif
 
+#if TIMEANALYSIS
+            ConsoleCONOP.StopSharedStopWatch("RunTime Simulated Annealing Algorithm (Main)");
+#endif
+
+#if TIMEANALYSIS
+            ConsoleCONOP.StartSharedStopWatch();
+#endif
+
             COMMOD9.AUTPEN = COMMOD9.BSTPEN;
             COMMOD9.NUDGUP = false;
             COMMOD9.NUDGDN = false;
@@ -888,8 +903,10 @@ namespace CONOP.NET
                 if (COMMOD9.CDF != 1) Helper.TRAJOUT();
 
             }
+
             //C-------------------------------------------------------------- 
             //C     save value of PENF
+            //C     LAST is tmp variable for COMMOD9.PENF, it's always fixed
             LAST = COMMOD9.PENF;
 
             //CPMS  Try to prevent the remaining tasks from
@@ -957,6 +974,23 @@ namespace CONOP.NET
             //CPMS  but the final penalty needs to be returned to its 
             //CPMS  "democratic" value for an ordinal search
 
+#if PARALLEL_POSTPROCESS
+            Task[] taskArray = new Task[3];
+            taskArray[0] = Task.Factory.StartNew(() =>
+            {
+                if (COMMOD9.FB4LF != 0) Helper.DEMPEN(COMMOD9.BSTPERM, ref COMMOD9.SEQPEN, 6);
+            });
+            taskArray[1] = Task.Factory.StartNew(() =>
+            {
+                Helper.DEMPEN(COMMOD9.BSTPERM, ref COMMOD9.ROYPEN, 5);
+            });
+            taskArray[2] = Task.Factory.StartNew(() =>
+            {
+                Helper.DEMPEN(COMMOD9.BSTPERM, ref COMMOD9.MOMPEN, 7);
+            });
+            Task.WaitAll(taskArray);
+            if (LAST == 7) Helper.CopyArray(COMMOD9.COLPEN, ref COMMOD9.SCJPEN);
+#else
             COMMOD9.PENF = 6;
             if (COMMOD9.FB4LF != 0) Helper.DEMPEN(COMMOD9.BSTPERM, ref COMMOD9.SEQPEN);
 
@@ -966,7 +1000,43 @@ namespace CONOP.NET
             COMMOD9.PENF = 7;
             Helper.DEMPEN(COMMOD9.BSTPERM, ref COMMOD9.MOMPEN);
             if (LAST == 7) Helper.CopyArray(COMMOD9.COLPEN, ref COMMOD9.SCJPEN);
+#endif
+            
+#if PARALLEL_POSTPROCESS
+            if (LAST != 4 && LAST != 3 && LAST != 2 && LAST != 5 && LAST != 6)
+            {
+                Task[] postTasks = new Task[3];
+                postTasks[0] = Task.Factory.StartNew(() =>
+                {
+                    Helper.DEMPEN(COMMOD9.BSTPERM, ref COMMOD9.RSCPEN, 4);
+                });
+                postTasks[1] = Task.Factory.StartNew(() =>
+                {
+                    Helper.DEMPEN(COMMOD9.BSTPERM, ref COMMOD9.SPTPEN, 3);
+                });
+                postTasks[2] = Task.Factory.StartNew(() =>
+                {
+                    Helper.DEMPEN(COMMOD9.BSTPERM, ref COMMOD9.ORDPEN, 2);
+                });
+                Task.WaitAll(taskArray);
+            }
+            else
+            {
+                COMMOD9.PENF = 4;
+                Helper.DEMPEN(COMMOD9.BSTPERM, ref COMMOD9.RSCPEN);
+                if (LAST == 4) Helper.CopyArray(COMMOD9.COLPEN, ref COMMOD9.SCJPEN);
 
+                COMMOD9.PENF = 3;
+                Helper.DEMPEN(COMMOD9.BSTPERM, ref COMMOD9.SPTPEN);
+                if (LAST == 3) Helper.CopyArray(COMMOD9.COLPEN, ref COMMOD9.SCJPEN);
+
+                COMMOD9.PENF = 2;
+                Helper.DEMPEN(COMMOD9.BSTPERM, ref COMMOD9.ORDPEN);
+                if (LAST == 2) Helper.CopyArray(COMMOD9.COLPEN, ref COMMOD9.SCJPEN);
+                if (LAST == 5) Helper.CopyArray(COMMOD9.COLPEN, ref COMMOD9.SCJPEN);
+                if ((LAST == 6) && (COMMOD9.FB4LF != 0)) Helper.CopyArray(COMMOD9.COLPEN, ref COMMOD9.SCJPEN);
+            }
+#else
             COMMOD9.PENF = 4;
             Helper.DEMPEN(COMMOD9.BSTPERM, ref COMMOD9.RSCPEN);
             if (LAST == 4) Helper.CopyArray(COMMOD9.COLPEN, ref COMMOD9.SCJPEN);
@@ -980,6 +1050,7 @@ namespace CONOP.NET
             if (LAST == 2) Helper.CopyArray(COMMOD9.COLPEN, ref COMMOD9.SCJPEN);
             if (LAST == 5) Helper.CopyArray(COMMOD9.COLPEN, ref COMMOD9.SCJPEN);
             if ((LAST == 6) && (COMMOD9.FB4LF != 0)) Helper.CopyArray(COMMOD9.COLPEN, ref COMMOD9.SCJPEN);
+#endif
 
             //C   SCJPEN now contains the primary section penalties
             //C   But this is pointless for Royal (PENF=5) 
@@ -1028,11 +1099,16 @@ namespace CONOP.NET
                     break;
             }
 
-#if WRITESULT
+#if WRITERESULT
             WritePara.writeBstPerm();
 #if GUIMODE
             Environment.Exit(0);
 #endif
+#endif
+
+
+#if TIMEANALYSIS
+            ConsoleCONOP.StopSharedStopWatch("RunTime Simulated Annealing Algorithm (PostProcess)");
 #endif
 
         Label33:

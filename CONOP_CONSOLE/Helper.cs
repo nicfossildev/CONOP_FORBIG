@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace CONOP.NET
 {
@@ -849,8 +851,7 @@ namespace CONOP.NET
         //C----------------------------------------------------------------------
         public static void GETPEN(int[] HPERM, ref double HPEN)
         {
-            int JOPT, CTRGET;
-            double PENJ;
+            int CTRGET;
 
             //C***********************************************************************
             //C     note that GETPEN is not generic. 
@@ -883,15 +884,49 @@ namespace CONOP.NET
             //C----------------------------------------------------------------------
             COMMOD COMMOD9 = COMMOD.Singleton();
 
-            JOPT = 0;
             COMMOD9.CTRF = 0;
             CTRGET = 0;
             HPEN = 0.0;
             COMMOD9.NGHPEN = 0.0;
             Helper.SetVal(COMMOD9.COLPEN, 0.0);          
 
+#if PARALLEL
+            int[] jopts = Enumerable.Range(0, COMMOD9.NSCT).ToArray(); 
+            try
+            {
+                Parallel.ForEach(jopts, JOPT =>
+                {
+                    double PENJ;
+                    //C  PLACE EVENTS AND CALCULATE PENALTY FOR SECTION "JOPT"               
+                    Helper.SCTPEN(HPERM, JOPT, out PENJ);
+
+                    if (COMMOD9.CTRF == 1)
+                    {
+                        CTRGET = 1;
+                    }
+
+                    COMMOD9.COLPEN[JOPT] = PENJ;
+                });
+            }
+            catch (AggregateException aex)
+            {
+                ConsoleColor preColor = Console.ForegroundColor;
+                Console.ForegroundColor = ConsoleColor.Red;
+                foreach (Exception ex in aex.InnerExceptions)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+                Console.ForegroundColor = preColor;
+            } 
+            
+            for (int JOPT = 0; JOPT < COMMOD9.NSCT; JOPT++)
+            {
+                HPEN += COMMOD9.COLPEN[JOPT];
+            }
+#else
+            double PENJ;
             //C----------------------------------------------------------------------
-            for (JOPT = 0; JOPT < COMMOD9.NSCT; JOPT++)
+            for (int JOPT = 0; JOPT < COMMOD9.NSCT; JOPT++)
             {
 
                 //C  PLACE EVENTS AND CALCULATE PENALTY FOR SECTION "JOPT"               
@@ -910,7 +945,8 @@ namespace CONOP.NET
 
             }
 
-           
+#endif
+
             //CPMS-------------------------------------------------------------------
             //cpms  getpen is called only outside anneal
             //cpms  so we can afford to call JSPAN every time
@@ -1456,6 +1492,7 @@ namespace CONOP.NET
         //cpms
         //CPMS  CTRF is set to 1 if a contraction (LARGE) is involved
         //CPMS  SECTPEN must undo the flag if the contraction is not accepted
+        //CPMS  MAJOR IMPACT for COMMOD9.PENF
         //C***********************************************************************
         public static double EPEN(int EVENTROW, int LEVEL, int JOPT)
         {
@@ -1606,6 +1643,163 @@ namespace CONOP.NET
             return retVal;
         }
 
+        /// <summary>
+        /// EPEN for overload penf variable, to support multi-threading parallel
+        /// Orlando, Ding 2014-01-17
+        /// </summary>
+        /// <param name="EVENTROW"></param>
+        /// <param name="LEVEL"></param>
+        /// <param name="JOPT"></param>
+        /// <returns></returns>
+        public static double EPEN(int EVENTROW, int LEVEL, int JOPT, int PENF)
+        {
+            double retVal = 0.0;
+
+            int ELVL;      // observed level of given event in given section
+            int EMOVES;    // permissible adjustments of given event
+            double DIST;   // separation of observed and placed levels
+            double WEIGHT; // weight factor for premitted adjustments
+
+            //c     Intialize internal variables
+            ELVL = 0;
+            EMOVES = 0;
+            WEIGHT = 0.0; //weight factor for event adjustments
+            DIST = 0.0;  //separation of observed and placed levels in JOPT
+            //c     Zero out some COMMOD variables
+            COMMOD COMMOD9 = COMMOD.Singleton();
+            COMMOD9.CTRF = 0;        // flag for contractions
+            //c     Get observed level
+            ELVL = COMMOD9.ISTATIC[EVENTROW, JOPT, 0];
+
+            if ((ELVL == -1) || (ELVL == LEVEL))//<=HXD
+            {
+                //cpms     no penalty
+                //cpms     event not seen in section JOPT  
+                //cpms     or event's datum level = LEVEL
+
+                // penalty for this event in this section at this level
+                retVal = 0.0;
+                DIST = 0.0;
+            }
+            else
+            {
+                //C  there is a penalty of type determined by PENF
+                //C  1. compute distance from observed to placed 
+                if ((PENF == 0) || (PENF > 1))
+                {
+                    //c   report interval penalty after run even if
+                    //c   optimization used an ordinal, spatial, or rascal penalty
+                    DIST = COMMOD9.VALEVEL[ELVL, JOPT] - COMMOD9.VALEVEL[LEVEL, JOPT];
+
+                    //cpms  i.e. DIST = observed minus placed
+                    //cpms       negative if displaced up
+                    //cpms       positive if displaced down
+                }
+                else if (PENF == 1)
+                {
+                    DIST = (double)(ELVL - LEVEL);
+                }
+                else if (PENF == -1)
+                {
+                    //c          --------larger than ORDINAL-------------
+                    //c          ----counts events at home level---------
+                    //c	     DIST = REAL(ELEVEL(elvl,JOPT) - ELEVEL(LEVEL,JOPT)) 
+                    //c          --------smaller than ORDINAL-------------
+                    //c          ----does not count home level------------
+                    if ((ELVL - LEVEL) > 1)
+                    {
+                        DIST = 1.0 + (double)(COMMOD9.ELEVEL[ELVL - 1, JOPT] - COMMOD9.ELEVEL[LEVEL, JOPT]);
+                    }
+                    else if ((ELVL - LEVEL) < -1)
+                    {
+                        DIST = (double)(COMMOD9.ELEVEL[ELVL + 1, JOPT] - COMMOD9.ELEVEL[LEVEL, JOPT]) - 1.0;
+                    }
+                    else if (Math.Abs(ELVL - LEVEL) == 1)
+                    {
+                        DIST = (double)(ELVL - LEVEL);
+                    }
+                    else if (ELVL == LEVEL)
+                    {
+                        DIST = 0.0;
+                    }
+                }
+
+
+                //cpms     2. find right weight
+                if (DIST < 0.0)
+                {
+
+                    //cpms       negative: need weight for moving up
+                    WEIGHT = COMMOD9.RSTATIC[EVENTROW, JOPT, 0];
+                }
+                else
+                {
+                    //cpms       positive: need weight for moving down
+                    WEIGHT = COMMOD9.RSTATIC[EVENTROW, JOPT, 1];
+                }
+                //C-----   --------------------------------------------
+                //C        for debugging
+                //C-----   --------------------------------------------
+                //c        IF(LOGEPEN.EQ.1) THEN   
+                //c           WRITE(*,*)'IN EPEN after dist and weight'
+                //c        END IF    
+                //C-----   --------------------------------------------
+                //C        next, compute the penalty 
+                //C        based on the allowable moves -  EMOVES
+                EMOVES = COMMOD9.ISTATIC[EVENTROW, JOPT, 1];
+
+                switch (EMOVES)
+                {
+                    case -1://<=HXD
+                    case 0:
+                        //no moves are allowed, use LARGE 
+                        retVal = Math.Abs(DIST) * WEIGHT * COMMOD9.LARGE;
+                        break;
+                    case 1:
+                        //only down moves allowed (DIST > 0),
+                        //if otherwise, use LARGE 
+                        if (DIST >= 0)
+                        {
+                            retVal = DIST * WEIGHT;
+                        }
+                        else
+                        {
+                            retVal = Math.Abs(DIST) * COMMOD9.LARGE;
+
+                            if (WEIGHT > 0.0) retVal = retVal * WEIGHT;
+                            COMMOD9.CTRF = 1;
+                        }
+                        break;
+                    case 2:
+                        //only up moves allowed (DIST < 0),
+                        //if otherwise, use LARGE
+                        if (DIST <= 0)
+                        {
+                            retVal = Math.Abs(DIST) * WEIGHT;
+                        }
+                        else
+                        {
+                            retVal = DIST * COMMOD9.LARGE;
+                            if (WEIGHT > 0.0) retVal = retVal * WEIGHT;
+                            COMMOD9.CTRF = 1;
+                        }
+                        break;
+                    case 3:
+                        //all moves are allowed
+                        retVal = Math.Abs(DIST) * WEIGHT;
+                        break;
+                }
+            }
+
+
+            //if (retVal >= 7777)
+            //{
+            //    Helper.Write("EVENTROW={0}, LEVEL={1}, JOPT={2}, EPEN={3}\n", EVENTROW, LEVEL, JOPT, retVal);
+            //}
+
+            return retVal;
+        }
+
         //CPMS*****************
         //CPMS  A version of EPEN designed to handle penalties for 
         //CPMS  negative evidence
@@ -1620,6 +1814,7 @@ namespace CONOP.NET
         //C                       PROGRAMMERS: PETE SADLER
         //C                       LAST UPDATE: Nov 9th 1999
         //C
+        //CPMS  MAJOR IMPACT for COMMOD9.PENF
         //C***********************************************
         public static double NEGPEN(int EVENTROW, int LEVEL, int JOPT)
         {
@@ -1762,6 +1957,155 @@ namespace CONOP.NET
 
         }
 
+        /// <summary>
+        /// NEGPEN for overload penf variable, to support multi-threading parallel
+        /// Orlando, Ding 2014-01-17
+        /// </summary>
+        /// <param name="EVENTROW"></param>
+        /// <param name="LEVEL"></param>
+        /// <param name="JOPT"></param>
+        /// <returns></returns>
+        public static double NEGPEN(int EVENTROW, int LEVEL, int JOPT, int PENF)
+        {
+            double retVal = 0.0;
+
+            double DIST = 0.0;
+            //C**************************************************************
+            //cpms---- NEGATIVE() CELL CODES
+            //cpms     0 = neither event nor coex events found in section  
+            //cpms            (penalize if NEGATF = 1{SS}, or NEGATF = 2{SL})
+            //cpms     1 = event found in section  (positive penalties)
+            //cpms     2 = coex events found in section  
+            //cpms       (penalize only if NEGATF = 1{SS})
+            //cpms-----------------------------------------
+            //cpms---- STACKER CODES
+            //cpms     0   OFF
+            //cpms     1   THRU
+            //cpms     2   INCL
+            //cpms     3   DIST
+            //cpms     4   FREQ
+            //cpms     5   EXIT
+            //cpms     6   PROP
+            //cpms---------------------------
+            COMMOD COMMOD9 = COMMOD.Singleton();
+
+            COMMOD9.CTRF = 0;
+
+            //cpms--NOTE: --------------------------------------
+            //cpms        we do not get into this routine unless 
+            //cpms        NEGATF.gt.0    AND
+            //cpms        NEGATIVE(taxon,section).ne.INT2(0)
+            //cpms        event is not observed in the section JOPT
+            //cpms-------------------------------------------------
+            //cpms  first eliminate cases with no penalty
+            if ((COMMOD9.IROWS[EVENTROW, 1] > 2) || (COMMOD9.IROWS[EVENTROW, 1] < 1) ||
+                (((COMMOD9.IROWS[EVENTROW, 1] < 3) || (COMMOD9.IROWS[EVENTROW, 1] > 0)) &&
+                ((COMMOD9.NEGATIVE[COMMOD9.IROWS[EVENTROW, 2], JOPT] == 2) &&
+                (COMMOD9.NEGATF == 1))))
+            {
+                //cpms     i.e. unpaired event,
+                //cpms     or paired event, coex-seen-but-negative-criterion-is-SS
+                DIST = 0.0;
+            }
+            else
+            {
+                //cpms  then calculate negative penalty for other cases
+                //cpms  i.e. those that are FAD or LAD and those 
+                //cpms       that qualify under NEGATF=1 or NEGATF=2
+                //cpms       i.e. neither event nor coex seen
+                //cpms            or  coex seen and negative criterion is SS
+
+                if (COMMOD9.IROWS[EVENTROW, 1] == 1)
+                {
+                    //cpms    if a FAD, then penalize distance to section-top
+                    //cpms              when ranges are too long, a FAD extends
+                    //cpms              down into too many sections where it
+                    //cpms              has not been observed (STACKER=EXIT)
+
+                    switch (COMMOD9.STKF)
+                    {
+                        case 2:
+                            //INCL - penalty of 1 for every section entered
+                            if (LEVEL < COMMOD9.HLEVEL[JOPT])
+                            {
+                                DIST = 0.5;
+                            }
+                            else
+                            {
+                                DIST = -0.5;
+                            }
+                            break;
+                        case 5:
+                            //EXIT - penalty grows with exit difference
+                            if (PENF == 1)
+                            {
+                                //DIST = REAL(HLEVEL(JOPT)-LEVEL)/REAL(HLEVEL(JOPT))
+                                DIST = 1.0 - (((double)LEVEL) / (double)(COMMOD9.HLEVEL[JOPT]));//<=HXD
+                            }
+                            else if ((PENF == 0) || (PENF > 1))
+                            {
+                                DIST = 1.0 - (COMMOD9.VALEVEL[LEVEL, JOPT] + 1)
+                                    / (COMMOD9.VALEVEL[COMMOD9.HLEVEL[JOPT], JOPT] + 1);
+                            }
+                            else if (PENF == -1)
+                            {
+                                DIST = 1.0 - ((double)(COMMOD9.ELEVEL[LEVEL, JOPT] + 1)
+                                    / (double)(COMMOD9.ELEVEL[COMMOD9.HLEVEL[JOPT], JOPT] + 1));//?HXD
+                            }
+                            break;
+                    }
+
+                }
+                else if (COMMOD9.IROWS[EVENTROW, 1] == 2)
+                {
+                    //L = HSCTSOL(IROWS(EVENTROW,4),JOPT)
+
+                    switch (COMMOD9.STKF)
+                    {
+                        case 2:
+                            //INCL - penalize for extending into section
+                            if (LEVEL > 1)
+                            {
+                                DIST = 0.5;
+                            }
+                            else
+                            {
+                                DIST = -0.5;
+                            }
+
+                            break;
+                        case 5:
+                            //EXIT - penalize by distance to base
+                            if (PENF == 1)
+                            {
+                                DIST = (double)(LEVEL - 1 + 1) / ((double)COMMOD9.HLEVEL[JOPT] + 1);//<=HXD
+                            }
+                            else if ((PENF == 0) || (PENF > 1))
+                            {
+                                DIST = (COMMOD9.VALEVEL[LEVEL, JOPT] - 1.0) / (double)(COMMOD9.HLEVEL[JOPT] + 1);//<=HXD
+                            }
+                            else if (PENF == -1)
+                            {
+                                DIST = (double)(COMMOD9.ELEVEL[LEVEL, JOPT] - 1 + 1)
+                                    / (double)(COMMOD9.ELEVEL[COMMOD9.HLEVEL[JOPT], JOPT] + 1);//?HXD
+                            }
+                            break;
+                    }
+
+
+                }
+            }
+
+
+            //cpms  no weights for negatives
+
+            retVal = DIST;
+            COMMOD9.NGHPEN = COMMOD9.NGHPEN + DIST;
+
+            return retVal;
+
+        }
+
         //CPMS***************************************************
         //CPMS  Calculates span of all the sections that have 
         //CPMS  exclusive events at the limits of the section.
@@ -1857,6 +2201,7 @@ namespace CONOP.NET
         //C          PROGRAMMER: PETE SADLER
         //C          LAST UPDATE: Jan 27th 2000
         //C
+        //CPMS  MAJOR IMPACT for COMMOD9.PENF
         //C------------------------------------------------
         public static void TWOPEN(int[] HPERM, ref double HPEN)
         {
@@ -1866,6 +2211,67 @@ namespace CONOP.NET
             COMMOD COMMOD9 = COMMOD.Singleton();
 
             if (COMMOD9.PENF <= 1)
+            {
+                //CPMS     determine any additional penalty due to the smoothing term
+                Helper.SMOOTH(HPERM);
+
+                //CPMS     update overall penalty
+                if (COMMOD9.KSM > 0.00) HPEN = HPEN + (COMMOD9.SMPEN * COMMOD9.KSM);
+
+                //CPMS--------------------------------------------------------------
+                //C        determine any additional penalty due to the squeezing factor
+                Helper.SQUEEZE(HPERM);
+
+                //CPMS     update overall penalty
+                if (COMMOD9.KSQ > 0.00) HPEN = HPEN + (COMMOD9.SQPEN * COMMOD9.KSQ);
+
+                //CPMS--------------------------------------------------------------
+                //C        determine any additional penalty due to the shrinking factor
+                Helper.SHRINK(HPERM);
+
+                //CPMS     update overall penalty
+                if (COMMOD9.KSH > 0.00) HPEN = HPEN + (COMMOD9.SHPEN * COMMOD9.KSH);
+
+            }
+
+            //CPMS--------------------------------------------------------------
+            //C     determine any additional penalty due to the teasing factor
+            //C     options 'OLAP'(STKF.eq.7) and 'COEX'(8) do not require HSCTSOL
+            if (COMMOD9.STKF == 8)
+            {
+                Helper.ROYAL(HPERM, ref XPEN);
+                COMMOD9.TSPEN = XPEN;
+            }
+            else if (COMMOD9.STKF == 9)
+            {
+                if (COMMOD9.FB4LF != 0) SEQUEL(HPERM, ref XPEN);
+                COMMOD9.TSPEN = XPEN;
+            }
+            else if ((COMMOD9.KTS > 0.00) || (COMMOD9.STKF == 7))
+            {
+                TEASE(HPERM);
+            }
+
+
+            //CPMS     update overall penalty
+            if (COMMOD9.KTS > 0.00) HPEN = HPEN + (COMMOD9.TSPEN * COMMOD9.KTS);
+
+        }
+
+        /// <summary>
+        /// TWOPEN for overload penf variable, to support multi-threading parallel
+        /// Orlando, Ding 2014-01-17
+        /// </summary>
+        /// <param name="HPERM"></param>
+        /// <param name="HPEN"></param>
+        public static void TWOPEN(int[] HPERM, ref double HPEN, int PENF)
+        {
+            double XPEN = 0.0;
+
+            //C****************************************************************
+            COMMOD COMMOD9 = COMMOD.Singleton();
+
+            if (PENF <= 1)
             {
                 //CPMS     determine any additional penalty due to the smoothing term
                 Helper.SMOOTH(HPERM);
@@ -1958,6 +2364,7 @@ namespace CONOP.NET
         //*         RANDOM NUM GEN
         //*     it seems necessary to put the interface include before any other
         //*         statements, even PROGRAM or SUBROUTINE
+        //CPMS  MAJOR IMPACT for COMMOD9.PENF
         //C----------------------------------------------------------------------
         public static void DEMPEN(int[] HPERM, ref double HPEN)
         {
@@ -2104,6 +2511,160 @@ namespace CONOP.NET
             if (COMMOD9.JSPANF == 1) HPEN = HPEN + COMMOD9.SPANPEN;
 
             Helper.TWOPEN(HPERM, ref HPEN);
+
+        }
+
+        /// <summary>
+        /// DEMPEN for overload penf variable, to support multi-threading parallel
+        /// Orlando, Ding 2014-01-17
+        /// </summary>
+        /// <param name="HPERM"></param>
+        /// <param name="HPEN"></param>
+        public static void DEMPEN(int[] HPERM, ref double HPEN, int PENF)
+        {
+            double PENJ;
+            int JOPT, SEP, I, K, statij;
+
+            COMMOD COMMOD9 = COMMOD.Singleton();
+
+            //C***********************************************************************
+            //C     note that DEMPEN is not generic. 
+            //C     it needs problem specific info, so it has access to the commons
+            //C     but it passes info with the calling routine (initially ANNEAL)
+            //C     in the CALL statement
+            //C**********************************************************************
+            //C   HPERM(TMXSPC+MXOTHR) IS a VECTOR OF events (solution)
+            //*         similar to the dynamic INTEGER variable PERM
+            //C
+            //C         A PROPER ORDERING OF THESE NEVNT EVENTS IS ONE OVERALL
+            //C            OBJECTIVE OF THE CORRELATION
+            //C----------------------------------------------------------------------
+            //C   THE OVERALL PENALTY FOR A GIVEN PERMUTATION CAN
+            //C      BE FOUND BY SUMMING ACROSS ALL SECTIONS
+            //c----------------------------------------------------------------------
+            //C   The democratic penalty does not require local placements 
+            //C   It does not use stratigraphic distance
+            //C----------------------------------------------------------------------
+            //C
+            //C   COMPUTE THE PENALTY FOR HPERM
+            //C
+            //C----------------------------------------------------------------------
+            HPEN = 0.0;
+            statij = -1;//<=HXD
+            Helper.SetVal(COMMOD9.COLPEN, 0.0);
+
+            if (PENF <= 3 || PENF == 7)
+            {
+                for (JOPT = 0; JOPT < COMMOD9.NSCT; JOPT++)
+                {
+                    PENJ = 0.0;
+
+                    for (I = 0; I < COMMOD9.NEVNT - 1; I++)
+                    {
+                        //ignore if not found or zeroed out (up and down)
+                        if (Helper.IORZERO(HPERM[I], JOPT)) continue;
+                        statij = COMMOD9.ISTATIC[HPERM[I], JOPT, 0];
+
+                        for (K = I + 1; K < COMMOD9.NEVNT; K++)
+                        {
+                            //cpms  ignore if not found or zeroed out (up and down)
+                            if (Helper.IORZERO(HPERM[K], JOPT)) continue;
+
+                            SEP = (statij) - (COMMOD9.ISTATIC[HPERM[K], JOPT, 0]);
+                            //CPMS  simple ordinal penalty
+                            if ((PENF < 3) && (SEP > 0))
+                            {
+                                //CPMS   needs to work at end of program if PENF.LT.2
+                                //CPMS   called to get simple ordinal penalty!     
+                                PENJ = PENJ + 1;
+                                //CPMS   spatial penalty
+                            }
+                            else if ((PENF == 3) && (SEP > 0))
+                            {
+                                PENJ = PENJ + SEP;
+                                //c   momental penalty
+                            }
+                            else if ((PENF == 7) && (SEP > 0))
+                            {
+                                PENJ = PENJ + (double)(K - I) / (double)(COMMOD9.NEVNT);
+                            }
+                        }
+                    }
+                    HPEN = HPEN + PENJ;
+                    COMMOD9.COLPEN[JOPT] = PENJ;
+                }
+            }
+            else if (PENF == 4)
+            {
+                if (COMMOD9.RASCon) goto Label143;
+
+                //c  Rascal Penalty without RASC()
+                for (I = 0; I < COMMOD9.NEVNT - 1; I++)
+                {
+                    for (K = I + 1; K < COMMOD9.NEVNT; K++)
+                    {
+                        PENJ = 0.0;
+                        SEP = 0;
+
+                        for (JOPT = 0; JOPT < COMMOD9.NSCT; JOPT++)
+                        {
+                            if (Helper.IORZERO(HPERM[I], JOPT)) continue;
+                            if (Helper.IORZERO(HPERM[K], JOPT)) continue;
+
+                            SEP = SEP + 1;
+
+                            //CPMS  simple ordinal penalty
+                            if (COMMOD9.ISTATIC[HPERM[I], JOPT, 0] >
+                            COMMOD9.ISTATIC[HPERM[K], JOPT, 0])
+                            {
+                                PENJ = PENJ + 1;
+                                COMMOD9.COLPEN[JOPT] = COMMOD9.COLPEN[JOPT] + 1;
+                            }
+                        }
+
+                        if (SEP > 0) HPEN = HPEN + (PENJ / (double)SEP);
+                    }
+                }
+
+                goto Label144;
+
+            Label143:
+                //c   Rascal penalty with RASC() 
+                for (I = 0; I < COMMOD9.NEVNT - 1; I++)
+                {
+                    for (K = I + 1; K < COMMOD9.NEVNT; K++)
+                    {
+                        //c  cycle if no contradictions    
+                        if (COMMOD9.RASC[HPERM[K], HPERM[I]] <= 0) continue;
+                        //c  cycle if never observed together
+                        if (COMMOD9.RASC[HPERM[I], HPERM[K]] +
+                            COMMOD9.RASC[HPERM[K], HPERM[I]] <= 0) continue;
+
+                        HPEN = HPEN + (double)(COMMOD9.RASC[HPERM[K], HPERM[I]]) /
+                            (double)(COMMOD9.RASC[HPERM[I], HPERM[K]] +
+                            COMMOD9.RASC[HPERM[K], HPERM[I]]);
+                    }
+                }
+
+            Label144:
+                ;
+            }
+            else if (PENF == 5)
+            {
+                Helper.ROYAL(HPERM, ref HPEN);
+            }
+            else if (PENF == 6)
+            {
+                //c  this case should already have forced Fb4L=1 or 2
+                //c  check anyway!	 
+                if (COMMOD9.FB4LF != 0) Helper.SEQUEL(HPERM, ref HPEN);
+            }
+
+            Helper.JSPAN(HPERM);
+
+            if (COMMOD9.JSPANF == 1) HPEN = HPEN + COMMOD9.SPANPEN;
+
+            Helper.TWOPEN(HPERM, ref HPEN, PENF);
 
         }
 

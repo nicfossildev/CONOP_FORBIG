@@ -40,7 +40,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>TRACE;DEBUG;SEC195;PARALLEL;WRITESULT</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;SEC50;PARALLEL;WRITERESULT;TIMEANALYSIS; PARALLEL_POSTPROCESS</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>

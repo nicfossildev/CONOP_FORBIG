@@ -12,6 +12,9 @@ using System.Runtime.InteropServices;
 #if SWT_CHECK_VIA_GETPEN
 using System.Diagnostics;
 #endif
+#if TIMEANALYSIS
+using System.Diagnostics;
+#endif
 
 using CONOP.NET;
 
@@ -19,8 +22,8 @@ namespace CONOP
 {
     public class ConsoleCONOP
     {
-        #region VARs        
-        
+        #region VARs
+
         //--------------------------------//
         //Variables for system time on 486//
         //--------------------------------//                 
@@ -746,12 +749,54 @@ namespace CONOP
 
         }
 
+        
+#if TIMEANALYSIS
+        static Stopwatch before = new Stopwatch();
+
+        /// <summary>
+        /// Start Shared StopWatch
+        /// </summary>
+        public static void StartSharedStopWatch()
+        {
+            if (ConsoleCONOP.before.IsRunning)
+            {
+                throw new NotSupportedException("StopWatch already started");
+            }
+            ConsoleCONOP.before.Restart();
+        }
+
+        
+        /// <summary>
+        /// Stop Shared StopWatch
+        /// </summary>
+        public static void StopSharedStopWatch(string infoInConsole)
+        {
+            if (!ConsoleCONOP.before.IsRunning)
+            {
+                throw new NotSupportedException("StopWatch haven't been started");
+            }
+            ConsoleCONOP.before.Stop();
+            // Get the elapsed time as a TimeSpan value.
+            TimeSpan ts = ConsoleCONOP.before.Elapsed;
+
+            // Format and display the TimeSpan value.
+            string elapsedTime = String.Format("{0:00}:{1:00}:{2:00}.{3:00}",
+                ts.Hours, ts.Minutes, ts.Seconds,
+                ts.Milliseconds / 10);
+            Console.WriteLine(string.Format("{0} - {1}", infoInConsole, elapsedTime));
+        }
+
+#endif
+
         /// <summary>
         /// if run simulated annealing procedure on CONSOLE
         /// </summary>
         /// <param name="bDrawChart"></param>
         protected void Run(bool bDrawChart)
         {
+#if TIMEANALYSIS
+            ConsoleCONOP.StartSharedStopWatch();
+#endif
             BeforeAnneal();
 
             COMMOD COMMOD9 = COMMOD.Singleton();
@@ -790,6 +835,10 @@ namespace CONOP
 
             IsBeforeAnneal = false;
 
+#if TIMEANALYSIS
+            ConsoleCONOP.StopSharedStopWatch("RunTime BeforeAnneal & Algorithm Preparation");
+#endif
+
 #if OUTDATA
             WritePara.writeThem();
             Environment.Exit(0);
@@ -808,6 +857,9 @@ namespace CONOP
             // TODO : input parameter for CONSOLE api -> 
             ANNEAL.Singleton().RunIt(this);
 
+#if TIMEANALYSIS
+            ConsoleCONOP.StartSharedStopWatch();
+#endif
             //cpms  update the near-enough threshold:
             COMMOD9.BSTPLUS = COMMOD9.BSTPEN + (COMMOD9.BSTPEN * COMMOD9.NEAR / (double)COMMOD9.NOBS);
 
@@ -970,9 +1022,6 @@ namespace CONOP
             }
 
             //CPMS   prepare to write reports
-
-
-
             if ((COMMOD9.OUTMAIN.Substring(0, 3) != "OFF") && (COMMOD9.OUTMAIN.Substring(0, 3) != "off") &&
                 COMMOD9.CDF != 1)
             {
@@ -1002,7 +1051,6 @@ namespace CONOP
                 //cpms    fill the arrays with composite section information
                 //cpms    and IF CMPOUTF.eq.1 (flag is in COMPOUT)  
                 //cpms    write the composite and compst file
-
                 File.WriteAllText(COMMOD9.OUTMAIN, COMMOD9.OutmainSB.ToString());
                 COMMOD9.OutmainSB.Length = 0;
             }
@@ -1073,14 +1121,16 @@ namespace CONOP
 
             if (COMMOD9.PAUSF >= 2) goto Label11;
 
-
             //    CALL EVENTSUM(3,minc)
-
             #endregion
 
 
         Label998:
             ;
+
+#if TIMEANALYSIS
+        ConsoleCONOP.StopSharedStopWatch("RunTime Prepare Output File Data");
+#endif
 
         }
 

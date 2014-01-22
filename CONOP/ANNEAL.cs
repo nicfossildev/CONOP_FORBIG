@@ -1009,7 +1009,7 @@ namespace CONOP.NET
                     break;
             }
 
-#if WRITESULT
+#if WRITERESULT
             WritePara.writeBstPerm();
             Environment.Exit(0);
 #endif

@@ -1,4 +1,5 @@
 # CONOP.NET for big data assemblies
+sync.bat
 CONOP/obj/
 CONOP/bin/Debug/
 !CONOP/README.txt

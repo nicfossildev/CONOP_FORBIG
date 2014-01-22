@@ -86,6 +86,3 @@ just ***Need to change file cfg on Line 24 from ***
   STARTFILE='soln.dat' => STARTFILE='bestsoln_7sec.dat'
 
   ;WRITESULT -> write content into file to avoid GUI+ bug
-
-  
-	7, self-validation for sec7, already fixed the bugs for parallelization

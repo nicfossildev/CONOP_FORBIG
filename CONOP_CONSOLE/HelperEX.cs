@@ -4081,6 +4081,554 @@ namespace CONOP.NET
 
         }
 
+        /// <summary>
+        /// NWDMPEN for overload penf variable, to support multi-threading parallel
+        /// Orlando, Ding 2014-01-17
+        /// </summary>
+        /// <param name="IRNK"></param>
+        /// <param name="JRNK"></param>
+        /// <param name="HPERM"></param>
+        /// <param name="HPEN"></param>
+        public static void NWDMPEN(int IRNK, int JRNK, int[] HPERM, ref double HPEN, int PENF)
+        {
+            int JOPT;
+            double PENJ;
+            int SEP, K, statij;
+
+            K = 0;
+            SEP = 0;
+            JOPT = 0;
+            statij = 0;
+
+            //C***********************************************************************
+            //C     note that GETPEN is not generic. 
+            //C     it needs problem specific info, so it has access to the commons
+            //C     but it passes info with the calling routine (initially ANNEAL)
+            //C     in the CALL statement
+            //c----------------------------------------------------------------------
+            //C   The democratic penalty does not require local placements 
+            //C   It does not use stratigraphic distance
+            //C----------------------------------------------------------------------
+            //C
+            //C   COMPUTE THE PENALTY FOR HPERM
+            //C
+            //C----------------------------------------------------------------------
+            //C     HPEN is ANNEAL's previous penalty
+            //C     setting HPEN = PEN means that new penalty is generated from old
+            //C     the next line does not appear in NEWPEN.FOR!  which sets HPEN = 0.0
+            //C     the next line causes the penalty calculation to build upon the 
+            //C     former penalty
+            //C     this is essential for the calculation of the primary dempen
+            //C     it seems to make a mess of the secondary penalty!
+            //C     the old secondary penalty is left in,  the new one is added on top!
+            //CPMS-------------------------------------------------------------
+            //c
+            //CPMS--any penalty from JSPAN needs to be removed from PEN
+            //cpms--the correction is not the last penalty from JSPAN (SPANPEN)
+            //cpms--it is the last ACCEPTED penalty from JSPAN (ASPNPEN)
+            //cpms--[just as PEN only updates from NXTPEN if accepted] 
+            //CPMS--SPANPEN will be recalculated and added back in at the end
+
+            COMMOD COMMOD9 = COMMOD.Singleton();
+
+            HPEN = COMMOD9.PEN;
+
+            if (COMMOD9.JSPANF == 1) HPEN = HPEN - COMMOD9.ASPNPEN;
+
+            if ((PENF == 5) || (PENF == 6)) goto Label5000;
+
+            //CPMS  with a big or small neighborhood structure, only one event moves   
+            if ((COMMOD9.NABRGEN == 1) || (COMMOD9.NABRGEN == 2))
+            {
+                if (PENF != 4)
+                {
+                    //small neighborhood crashes in next loop
+                    for (JOPT = 0; JOPT < COMMOD9.NSCT; JOPT++)
+                    {
+                        PENJ = 0.0;
+
+                        //reject if not seen or zeroed out
+                        if (Helper.IORZERO(HPERM[JRNK], JOPT)) goto Label2000;
+
+                        statij = COMMOD9.ISTATIC[HPERM[JRNK], JOPT, 0];
+
+                        //c	   small neigborhood crashes at first use of JRNK
+                        //CPMS    current jrnk is the event that moved (to jrnk)
+
+                        if (IRNK < JRNK)
+                        {
+                            //one event moved above several others
+                            for (K = Math.Min(IRNK, JRNK); K < Math.Max(IRNK, JRNK) - 1; K++)
+                            {
+                                //CPMS   compare with all passed events in turn
+                                //cpms   but reject if not found or zeroed out  
+                                if (Helper.IORZERO(HPERM[K], JOPT)) goto Label1000;
+
+                                SEP = statij - COMMOD9.ISTATIC[HPERM[K], JOPT, 0];
+                                if ((PENF == 2) && (SEP > 0))
+                                {
+                                    PENJ = PENJ - 1;
+                                }
+                                else if ((PENF == 2) && (SEP < 0))
+                                {
+                                    PENJ = PENJ + 1;
+                                }
+                                else if ((PENF == 7) && (SEP > 0))
+                                {
+                                    PENJ = PENJ - (double)(JRNK - K) / (double)COMMOD9.NEVNT;
+                                }
+                                else if ((PENF == 7) && (SEP < 0))
+                                {
+                                    PENJ = PENJ + (double)(JRNK - K) / (double)COMMOD9.NEVNT;
+                                }
+                                else if (PENF == 3)
+                                {
+                                    PENJ = PENJ - SEP;
+                                }
+
+                            }//End for K
+
+                        Label1000:
+                            HPEN = HPEN + PENJ;
+
+                            COMMOD9.COLPEN[JOPT] = COMMOD9.COLPEN[JOPT] + PENJ;
+                        }
+                        else if (IRNK > JRNK)
+                        {
+                            //one event moved below several others
+                            for (K = Math.Min(IRNK, JRNK) + 1; K < Math.Max(IRNK, JRNK); K++)
+                            {
+                                if (Helper.IORZERO(HPERM[K], JOPT)) goto Label1500;
+
+                                SEP = COMMOD9.ISTATIC[HPERM[K], JOPT, 0] - statij;
+
+                                if ((PENF == 2) && (SEP > 0))
+                                {
+                                    PENJ = PENJ - 1;
+                                }
+                                else if ((PENF == 2) && (SEP < 0))
+                                {
+                                    PENJ = PENJ + 1;
+                                }
+                                else if (PENF == 3)
+                                {
+                                    PENJ = PENJ - SEP;
+                                }
+                                else if ((PENF == 7) && (SEP > 0))
+                                {
+                                    PENJ = PENJ - (double)(K - JRNK) / (double)COMMOD9.NEVNT;
+                                }
+                                else if ((PENF == 7) && (SEP < 0))
+                                {
+                                    PENJ = PENJ + (double)(K - JRNK) / (double)COMMOD9.NEVNT;
+                                }
+
+                            }//End For K
+
+                        Label1500:
+                            HPEN = HPEN + PENJ;
+                            COMMOD9.COLPEN[JOPT] = COMMOD9.COLPEN[JOPT] + PENJ;
+                        }
+
+                    Label2000:
+                        ;
+                    }
+                }
+                else if (PENF == 4)
+                {
+                    //CPMS  current jrnk is the event that moved (to jrnk)     
+                    if (IRNK < JRNK)
+                    {
+                        //one event moved above several others
+                        if (COMMOD9.RASCon) goto Label2100;
+
+                        //Rascal penalty without RASC()
+                        for (K = Math.Min(IRNK, JRNK); K < Math.Max(IRNK, JRNK) - 1; K++)
+                        {
+                            PENJ = 0.0;
+                            SEP = 0;
+
+                            for (JOPT = 0; JOPT < COMMOD9.NSCT; JOPT++)
+                            {
+                                //    abandon if either is missin
+                                //abandon if either is zeroed out
+
+                                if ((Helper.IORZERO(HPERM[JRNK], JOPT))) continue;
+
+                                //sep counts the number of observed pairs 
+                                SEP = SEP + 1;
+
+                                //simple ordinal penalty
+                                if (COMMOD9.ISTATIC[HPERM[JRNK], JOPT, 0] >
+                                COMMOD9.ISTATIC[HPERM[K], JOPT, 0])
+                                {
+                                    PENJ = PENJ - 1;
+                                    COMMOD9.COLPEN[JOPT] = COMMOD9.COLPEN[JOPT] - 1;
+                                }
+                                else if (COMMOD9.ISTATIC[HPERM[JRNK], JOPT, 0] <
+                                    COMMOD9.ISTATIC[HPERM[K], JOPT, 0])
+                                {
+                                    PENJ = PENJ + 1;
+                                    COMMOD9.COLPEN[JOPT] = COMMOD9.COLPEN[JOPT] + 1;
+                                }
+
+                            }//End for JOPT
+
+                            //CPMS  convert penalty to probability 
+                            if (SEP > 0) HPEN = HPEN + (PENJ / SEP);
+
+                        }//End for K
+
+                        goto Label2300;
+
+                    Label2100:
+
+                        for (K = Math.Min(IRNK, JRNK); K < Math.Max(IRNK, JRNK) - 1; K++)
+                        {
+                            //c   cycle if never observed together
+                            if (COMMOD9.RASC[HPERM[JRNK], HPERM[K]] +
+                                COMMOD9.RASC[HPERM[K], HPERM[JRNK]] <= 0) continue;
+
+                            //add penalty for new order and subtract for old order
+                            HPEN = HPEN +
+                                (double)(COMMOD9.RASC[HPERM[JRNK], HPERM[K]]) /
+                                (double)(COMMOD9.RASC[HPERM[JRNK], HPERM[K]] +
+                                (double)(COMMOD9.RASC[HPERM[K], HPERM[JRNK]]))
+                                - (double)(COMMOD9.RASC[HPERM[K], HPERM[JRNK]]) /
+                                (double)(COMMOD9.RASC[HPERM[JRNK], HPERM[K]] +
+                                (double)(COMMOD9.RASC[HPERM[K], HPERM[JRNK]]));
+                        }
+
+                    Label2300:
+                        ;
+                    }
+                    else if (IRNK > JRNK)
+                    {
+                        //one event moved below several others
+                        if (COMMOD9.RASCon) goto Label2500;
+
+                        for (K = Math.Min(IRNK, JRNK) + 1; K < Math.Max(IRNK, JRNK); K++)
+                        {
+                            PENJ = 0.0;
+                            SEP = 0;
+
+                            for (JOPT = 0; JOPT < COMMOD9.NSCT; JOPT++)
+                            {
+                                //cpms  abandon if either is zeroed out
+                                if ((Helper.IORZERO(HPERM[JRNK], JOPT)) ||
+                                    (Helper.IORZERO(HPERM[K], JOPT))) continue;
+
+                                SEP = SEP + 1;
+
+                                //simple ordinal penalty
+
+                                if (COMMOD9.ISTATIC[HPERM[K], JOPT, 0] >
+                                    COMMOD9.ISTATIC[HPERM[JRNK], JOPT, 0])
+                                {
+                                    PENJ = PENJ - 1;
+                                    COMMOD9.COLPEN[JOPT] = COMMOD9.COLPEN[JOPT] + 1;
+                                }
+                                else if (COMMOD9.ISTATIC[HPERM[K], JOPT, 0] <
+                                    COMMOD9.ISTATIC[HPERM[JRNK], JOPT, 0])
+                                {
+                                    PENJ = PENJ + 1;
+                                    COMMOD9.COLPEN[JOPT] = COMMOD9.COLPEN[JOPT] + 1;
+                                }
+                            }//End for JOPT
+
+                            if (SEP > 0) HPEN = HPEN + (PENJ / SEP);
+                        }//End for K
+
+                        goto Label2700;
+
+                    Label2500:
+
+                        for (K = Math.Min(IRNK, JRNK) + 1; K < Math.Max(IRNK, JRNK); K++)
+                        {
+                            //cycle if never observed together
+                            if (COMMOD9.RASC[HPERM[JRNK], HPERM[K]] +
+                                COMMOD9.RASC[HPERM[K], HPERM[JRNK]] <= 0) continue;
+
+                            //subtract for old order and add penalty for new order
+                            HPEN = HPEN -
+                                (double)(COMMOD9.RASC[HPERM[JRNK], HPERM[K]]) /
+                                (double)((COMMOD9.RASC[HPERM[JRNK], HPERM[K]]) +
+                                (COMMOD9.RASC[HPERM[K], HPERM[JRNK]]))
+                                + (double)(COMMOD9.RASC[HPERM[K], HPERM[JRNK]]) /
+                                (double)((COMMOD9.RASC[HPERM[JRNK], HPERM[K]]) +
+                                (COMMOD9.RASC[HPERM[K], HPERM[JRNK]]));
+
+                        }//End for K
+
+                    Label2700:
+                        ;
+                    }
+                }
+            }
+            else if (COMMOD9.NABRGEN == 3)
+            {
+                //with a double neighborhood structure, both events move
+                if (PENF != 4)
+                {
+                    for (JOPT = 0; JOPT < COMMOD9.NSCT; JOPT++)
+                    {
+                        PENJ = 0.0;
+
+                        // abandon if zeroed out
+                        if (Helper.IORZERO(HPERM[Math.Max(IRNK, JRNK)], JOPT)) goto Label2900;
+
+                        statij = COMMOD9.ISTATIC[HPERM[Math.Max(IRNK, JRNK)], JOPT, 0];
+
+                        //one event moved above several others    
+                        for (K = Math.Min(IRNK, JRNK); K < Math.Max(IRNK, JRNK) - 1; K++)
+                        {
+                            //compare with all passed events, including other mover  
+                            if (Helper.IORZERO(HPERM[K], JOPT)) goto Label2800;
+
+                            SEP = statij - COMMOD9.ISTATIC[HPERM[K], JOPT, 0];
+
+                            if ((PENF == 2) && (SEP > 0))
+                            {
+                                PENJ = PENJ - 1;
+                            }
+                            else if ((PENF == 2) && (SEP < 0))
+                            {
+                                PENJ = PENJ + 1;
+                            }
+                            else if ((PENF == 7) && (SEP > 0))
+                            {
+                                PENJ = PENJ - (double)(JRNK - K) / (double)COMMOD9.NEVNT;
+                            }
+                            else if ((PENF == 7) && (SEP < 0))
+                            {
+                                PENJ = PENJ + (double)(JRNK - K) / (double)COMMOD9.NEVNT;
+                            }
+                            else if (PENF == 3)
+                            {
+                                PENJ = PENJ - SEP;
+                            }
+
+                        Label2800:
+                            ;
+                        }
+
+
+
+                        HPEN = HPEN + PENJ;
+                        COMMOD9.COLPEN[JOPT] = COMMOD9.COLPEN[JOPT] + PENJ;
+
+                    Label2900:
+                        PENJ = 0.0;
+
+                        //abandon if either is zeroed out
+                        if (Helper.IORZERO(HPERM[Math.Min(IRNK, JRNK)], JOPT)) goto Label3000;
+
+                        statij = COMMOD9.ISTATIC[HPERM[Math.Min(IRNK, JRNK)], JOPT, 0];
+
+                        //other event moved below several others        
+                        for (K = Math.Min(IRNK, JRNK) + 1; K < Math.Max(IRNK, JRNK) - 1; K++)
+                        {
+                            //compare with all passed events, but not other mover       
+                            if (Helper.IORZERO(HPERM[K], JOPT)) goto Label2950;
+
+                            SEP = COMMOD9.ISTATIC[HPERM[K], JOPT, 0] - statij;
+
+                            if ((PENF == 2) && (SEP > 0))
+                            {
+                                PENJ = PENJ - 1;
+                            }
+                            else if ((PENF == 2) && (SEP < 0))
+                            {
+                                PENJ = PENJ + 1;
+                            }
+                            else if ((PENF == 7) && (SEP > 0))
+                            {
+                                PENJ = PENJ - (double)(K - JRNK) / (double)COMMOD9.NEVNT;
+                            }
+                            else if ((PENF == 7) && (SEP < 0))
+                            {
+                                PENJ = PENJ + (double)(K - JRNK) / (double)COMMOD9.NEVNT;
+                            }
+                            else if (PENF == 3)
+                            {
+                                PENJ = PENJ - SEP;
+                            }
+
+                        Label2950:
+                            ;
+
+                        }//End for K
+
+                        HPEN = HPEN + PENJ;
+                        COMMOD9.COLPEN[JOPT] = COMMOD9.COLPEN[JOPT] + PENJ;
+
+                    Label3000:
+                        ;
+                    }//End for JOPT
+
+                }
+                else if (PENF == 4)
+                {
+                    //CPMS   current jrnk is the event that moved (to jrnk)             
+                    //CPMS   one event moved above several others 
+                    if (COMMOD9.RASCon) goto Label3100;
+
+                    //Rascal penalty without RASC()
+                    for (K = Math.Min(IRNK, JRNK); K < Math.Max(IRNK, JRNK) - 1; K++)
+                    {
+                        PENJ = 0.0;
+                        SEP = 0;
+
+                        for (JOPT = 0; JOPT < COMMOD9.NSCT; JOPT++)
+                        {
+                            //abandon if either is zeroed out
+                            if (Helper.IORZERO(HPERM[Math.Max(IRNK, JRNK)], JOPT)) continue;
+
+                            if (Helper.IORZERO(HPERM[K], JOPT)) continue;
+
+                            //sep counts the number of observed pairs 
+                            SEP = SEP + 1;
+
+                            //simple ordinal penalty
+
+                            if (COMMOD9.ISTATIC[HPERM[Math.Max(IRNK, JRNK)], JOPT, 0] >
+                                COMMOD9.ISTATIC[HPERM[K], JOPT, 0])
+                            {
+                                PENJ = PENJ - 1;
+                                COMMOD9.COLPEN[JOPT] = COMMOD9.COLPEN[JOPT] + 1;
+                            }
+                            else if (COMMOD9.ISTATIC[HPERM[Math.Max(IRNK, JRNK)], JOPT, 0] <
+                                COMMOD9.ISTATIC[HPERM[K], JOPT, 0])
+                            {
+                                PENJ = PENJ + 1;
+                                COMMOD9.COLPEN[JOPT] = COMMOD9.COLPEN[JOPT] + 1;
+                            }
+
+                        }//End for JOPT
+
+                        //convert penalty to probability
+                        if (SEP > 0) HPEN = HPEN + (PENJ / SEP);
+
+                    }//End for K
+
+                    goto Label3300;
+
+                Label3100:
+                    ;
+
+                    //Rascal Penalty with RASC()
+                    for (K = Math.Min(IRNK, JRNK); K < Math.Max(IRNK, JRNK) - 1; K++)
+                    {
+                        //cycle if never observed together
+                        if (COMMOD9.RASC[HPERM[Math.Max(IRNK, JRNK)], HPERM[K]] +
+                            COMMOD9.RASC[HPERM[K], HPERM[Math.Max(IRNK, JRNK)]] <= 0) continue;
+
+                        //add penalty for new order and subtract for old order
+                        HPEN = HPEN +
+                            (double)(COMMOD9.RASC[HPERM[Math.Max(IRNK, JRNK)], HPERM[K]]) /
+                            (double)(COMMOD9.RASC[HPERM[Math.Max(IRNK, JRNK)], HPERM[K]] +
+                            COMMOD9.RASC[HPERM[K], HPERM[Math.Max(IRNK, JRNK)]])
+                            - (double)(COMMOD9.RASC[HPERM[K], HPERM[Math.Max(IRNK, JRNK)]]) /
+                            (double)(COMMOD9.RASC[HPERM[Math.Max(IRNK, JRNK)], HPERM[K]] +
+                            COMMOD9.RASC[HPERM[K], HPERM[Math.Max(IRNK, JRNK)]]);
+
+                    }//End for K
+
+                Label3300:
+
+                    //other event moved below several others
+                    if (COMMOD9.RASCon) goto Label3500;
+
+                    //Rascal Penalty without RASC()
+                    for (K = Math.Min(IRNK, JRNK) + 1; K < Math.Max(IRNK, JRNK) - 1; K++)
+                    {
+                        //compare to all passed events but not other mover 
+                        PENJ = 0.0;
+                        SEP = 0;
+
+                        for (JOPT = 0; JOPT < COMMOD9.NSCT; JOPT++)
+                        {
+                            //abandon if either is zeroed out
+                            if (Helper.IORZERO(HPERM[Math.Min(IRNK, JRNK)], JOPT)) continue;
+
+                            if (Helper.IORZERO(HPERM[JRNK], JOPT)) continue;
+
+                            SEP = SEP + 1;
+
+                            //simple ordinal penalty
+
+                            if (COMMOD9.ISTATIC[HPERM[K], JOPT, 0] >
+                            COMMOD9.ISTATIC[HPERM[Math.Min(IRNK, JRNK)], JOPT, 0])
+                            {
+                                PENJ = PENJ - 1;
+                                COMMOD9.COLPEN[JOPT] = COMMOD9.COLPEN[JOPT] + 1;
+                            }
+                            else if (COMMOD9.ISTATIC[HPERM[K], JOPT, 0] <
+                                COMMOD9.ISTATIC[HPERM[Math.Min(IRNK, JRNK)], JOPT, 0])
+                            {
+                                PENJ = PENJ + 1;
+                                COMMOD9.COLPEN[JOPT] = COMMOD9.COLPEN[JOPT] + 1;
+                            }
+                        }//End for JOPT
+
+                        if (SEP > 0) HPEN = HPEN + (PENJ / SEP);
+
+                    }//End for K
+
+                    goto Label3700;
+
+                Label3500:
+                    //Rascal Penalty determination with RASC()
+                    for (K = Math.Min(IRNK, JRNK) + 1; K < Math.Max(IRNK, JRNK) - 1; K++)
+                    {
+                        //cycle if never observed together
+
+                        if (COMMOD9.RASC[HPERM[Math.Min(IRNK, JRNK)], HPERM[K]] +
+                            COMMOD9.RASC[HPERM[K], HPERM[Math.Min(IRNK, JRNK)]] <= 0) continue;
+
+                        //subtract for old order and add penalty for new order
+                        HPEN = HPEN -
+                            (double)(COMMOD9.RASC[HPERM[Math.Min(IRNK, JRNK)], HPERM[K]]) /
+                            (double)(COMMOD9.RASC[HPERM[Math.Min(IRNK, JRNK)], HPERM[K]] +
+                            COMMOD9.RASC[HPERM[K], HPERM[Math.Min(IRNK, JRNK)]])
+                            + (double)(COMMOD9.RASC[HPERM[K], HPERM[Math.Min(IRNK, JRNK)]]) /
+                            (double)(COMMOD9.RASC[HPERM[Math.Min(IRNK, JRNK)], HPERM[K]] +
+                            COMMOD9.RASC[HPERM[K], HPERM[Math.Min(IRNK, JRNK)]]);
+
+                    }//End for K
+
+                Label3700:
+                    ;
+                }//End if
+            }//End if
+
+            if (COMMOD9.JSPANF == 1)
+            {
+                Helper.JSPAN(HPERM);
+                HPEN = HPEN + COMMOD9.SPANPEN;
+            }
+
+        Label5000:
+
+            if (PENF == 5)
+            {
+                //HPEN = PEN  done in first line
+                Helper.NEWROYAL(IRNK, JRNK, HPERM, ref HPEN);
+            }
+
+            if (PENF == 6)
+            {
+                //HPEN = PEN  done in first line
+                if (COMMOD9.FB4LF != 0) Helper.NEWSEQUEL(IRNK, JRNK, HPERM, ref HPEN);
+            }
+
+
+            if (COMMOD9.PEN2F > 0) Helper.NEW2PEN(IRNK, JRNK, HPERM, ref HPEN, 1);
+
+
+
+        }
+
         //CPMS***********************************
         //CPMS   Returns value of placed level
         //C
